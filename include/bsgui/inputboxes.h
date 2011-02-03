@@ -25,8 +25,6 @@ struct Inputbox : public Control
 	virtual ~Inputbox();
 
 	void SetText(const MyString text);
-	const MyString GetText();
-
 
 	virtual void Render();
 

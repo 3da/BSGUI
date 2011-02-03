@@ -62,8 +62,8 @@ void RemoveItemAction(Control *sender)
 void AddTheAboveTextAction(Control *sender)
 {
 	Listbox *lbox = (Listbox*)Screen::screen->FindChild("listbox");
-	lbox->AddItem(((Passwordbox*)Screen::screen->FindChild("inputbox"))->text.c_str());
-	((Passwordbox*)Screen::screen->FindChild("inputbox"))->SetText("");
+	lbox->AddItem(((Inputbox*)Screen::screen->FindChild("inputbox"))->text.c_str());
+	((Inputbox*)Screen::screen->FindChild("inputbox"))->SetText("");
 	Screen::screen->FindChild("inputbox")->Focus();
 }
 
@@ -120,7 +120,7 @@ void FileSelectedAction(Control *sender)
 void SelectFileAction(Control *sender)
 {
 	FileBrowser	*browser = new FileBrowser(themeDefault, Screen::screen, "Select File");
-	browser->selected = FileSelectedAction;
+	browser->actionSelected = FileSelectedAction;
 }
 
 void AboutBoxAction(Control *sender)
@@ -204,7 +204,7 @@ void InitOpenGL()
 void CreateUI()
 {
 	IMG_Init(IMG_INIT_PNG|IMG_INIT_JPG);
-	font = new BMFont("droid30.fnt");
+	font = new BMFont("font.fnt");
 	font->Init();
 	themeDefault.font = font;
 	themeDefault.fontSize = 0.5;
@@ -231,9 +231,9 @@ void CreateUI()
 
  	new Label(win, themeDefault, 5, 0, "A Label");
 
- 	(new Button(win, themeDefault, 10, 25, 180, 50, "About"))->clicked = AboutBoxAction;
- 	(new Button(win, themeDefault, 10, 55, 180, 80, "Use red theme"))->clicked = SetThemeRed;
- 	(new Button(win, themeDefault, 10, 85, 180, 110, "Use default theme"))->clicked = SetThemeDefault;
+ 	(new Button(win, themeDefault, 10, 25, 180, 50, "About"))->actionPressed = AboutBoxAction;
+ 	(new Button(win, themeDefault, 10, 55, 180, 80, "Use red theme"))->actionPressed = SetThemeRed;
+ 	(new Button(win, themeDefault, 10, 85, 180, 110, "Use default theme"))->actionPressed = SetThemeDefault;
 
 	Window	*win2 = new Window(screen1, themeDefault, "Fluffy window");
 	win2->Center();
@@ -255,11 +255,14 @@ void CreateUI()
 	}
 	lbox->name = "listbox";
 	Button *b1 = (new Button(win2, themeDefault, 10, 210, 175, 235, "Add wide item"));//
-	b1->clicked = AddWideItemAction;
+	b1->actionPressed = AddWideItemAction;
 	b1->visible = true;
-	(new Button(win2, themeDefault, 10, 240, 175, 265, "Remove active item"))->clicked = RemoveItemAction;
-	(new Passwordbox(win2, themeDefault, 10, 270, 175, 295))->name = "inputbox";
-	(new Button(win2, themeDefault, 10, 300, 175, 325, "Add the above text"))->clicked = AddTheAboveTextAction;
+	(new Button(win2, themeDefault, 10, 240, 175, 265, "Remove active item"))->actionPressed = RemoveItemAction;
+	Inputbox *inpBox11 = new Inputbox(win2, themeDefault, 10, 270, 175, 295);
+	inpBox11->name = "inputbox";
+	inpBox11->actionPressed = AddTheAboveTextAction;
+	(new Inputbox(win2, themeDefault, 10, 270, 175, 295))->name = "inputbox";
+	(new Button(win2, themeDefault, 10, 300, 175, 325, "Add the above text"))->actionPressed = AddTheAboveTextAction;
 
 	ProgressBar	*pbar = new ProgressBar(win2, themeDefault, 10, 330, 175, 355);
 	pbar->value = 10;
@@ -276,7 +279,7 @@ void CreateUI()
 	stepCount = new Slider(win3, themeDefault, 10, 50, 180, 65);
 	stepCount->max = 61;
 	stepCount->value = 3;
-	stepCount->modified = StepsModifiedAction;
+	stepCount->actionModified = StepsModifiedAction;
 
  	new Label(win3, themeDefault, 5, 80, "Object size:");
 	sizeSlider = new Slider(win3, themeDefault, 10, 105, 180, 120);
@@ -310,7 +313,7 @@ void CreateUI()
 	int width, height;
 	win5->GetClientSize(width, height);
 	win5->resizeable = true;
-	win5->resized = ImageWinResizedAction;
+	win5->actionResized = ImageWinResizedAction;
 	Picture *bob = new Picture(win5, themeDefault, 10,10, width-10, height-30, img);
 	bob->name = "bob";
 
@@ -322,7 +325,7 @@ void CreateUI()
 	//win5->icon = new Bitmap(INTERNALBMP_WINICON);
 	win5->movable = false;
 
-	(new Button(Screen::screen, themeDefault, 750, 5, 795, 30, "Quit"))->clicked = TerminateAppAction;
+	(new Button(Screen::screen, themeDefault, 750, 5, 795, 30, "Quit"))->actionPressed = TerminateAppAction;
 
 
 
@@ -342,10 +345,10 @@ void CreateUI()
 
 	(new BSGUI::Button(winConnecting, themeDefault, 30, 80, 170, 110, "Quit"));
 
- 	(new Button(Screen::screen, themeDefault, 5, 5, 105, 30, "Screen 1"))->clicked = ActivateScreen1;
- 	(new Button(Screen::screen, themeDefault, 110, 5, 210, 30, "Screen 2"))->clicked = ActivateScreen2;
- 	(new Button(screen2, themeDefault, 5, 5, 105, 30, "Screen 1"))->clicked = ActivateScreen1;
- 	(new Button(screen2, themeDefault, 110, 5, 210, 30, "Screen 2"))->clicked = ActivateScreen2;
+ 	(new Button(Screen::screen, themeDefault, 5, 5, 105, 30, "Screen 1"))->actionPressed = ActivateScreen1;
+ 	(new Button(Screen::screen, themeDefault, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
+ 	(new Button(screen2, themeDefault, 5, 5, 105, 30, "Screen 1"))->actionPressed = ActivateScreen1;
+ 	(new Button(screen2, themeDefault, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
 
  	fps = new Label(screen1, themeDefault, 5, 40, "?? fps ");
 

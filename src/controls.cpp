@@ -32,6 +32,8 @@ Control::Control(Control *parent, Theme &t)
 	popupMenu = 0;
 	exclusiveChild = 0;
 	actionClicked = 0;
+	actionResized = 0;
+	actionMoved = 0;
 	visible = true;
 	theme = t;
 }

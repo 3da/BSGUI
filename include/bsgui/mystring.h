@@ -19,7 +19,7 @@ public:
 	const char *GetAscii();
 	const wchar_t *GetUnicode() const;
 
-	MyString &operator=(const MyString &str) {Set(str.c_str());}
+	MyString &operator=(const MyString &str) {Set(str.c_str()); return *this;}
 
 
 protected:

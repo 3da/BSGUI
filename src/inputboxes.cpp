@@ -101,11 +101,6 @@ bool Inputbox::OnKeyUp(int key, unsigned wchar_t ascii)
 	return false;
 }
 
-const MyString Inputbox::GetText()
-{
-	return text;
-}
-
 void Inputbox::SetText(const MyString t)
 {
 	int     w, h;
