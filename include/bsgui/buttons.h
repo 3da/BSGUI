@@ -23,6 +23,8 @@ struct Button : public Control
 	bool pushed;
 	bool highlighted;
 
+	CallbackActionFunc actionPressed;
+
 	Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const MyString caption, Image *bitmap=NULL);
 	virtual ~Button();
 

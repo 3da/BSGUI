@@ -19,7 +19,7 @@ ListboxItem::ListboxItem(Control *parent, Theme &t)
 	//minimumWidth = 16;
 	itemHeight = theme.height + 5;
 	data = NULL;
-	selected = NULL;
+	actionSelected = 0;
 }
 
 ListboxItem::~ListboxItem()
@@ -56,8 +56,8 @@ void ListboxItem::Focus()
 	if (box->active != this)
 	{
 		box->active = this;
-		RunAction(selected);
-		RunActionOf(box, box->modified);
+		RunAction(actionSelected);
+		RunActionOf(box, box->actionModified);
 	}
 	//box->Focus();
 }
@@ -142,8 +142,8 @@ void Listbox::SelectItem(ListboxItem *item)
 	if (!item || item == active)
 		return;
 	active = item;
-	RunActionOf(active, active->selected);
-	RunAction(modified);
+	RunActionOf(active, active->actionSelected);
+	RunAction(actionModified);
 }
 
 void Listbox::Layout()

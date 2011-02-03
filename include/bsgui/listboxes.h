@@ -19,6 +19,8 @@ struct ListboxItem : public Control
 	unsigned int    itemHeight;
 	void            *data;
 
+	CallbackActionFunc actionSelected;
+
 	ListboxItem(Control *parent, Theme &t);
 	virtual ~ListboxItem();
 
@@ -30,6 +32,8 @@ struct ListboxItem : public Control
 struct Listbox : public Scrollbox
 {
 	ListboxItem     *active;
+
+	CallbackActionFunc actionModified;
 
 	Listbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Listbox();

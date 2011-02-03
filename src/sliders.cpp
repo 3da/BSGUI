@@ -18,6 +18,7 @@ Slider::Slider(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
 	Place(x1, y1, x2, y2);
 	max = 5;
 	value = 0;
+	actionModified = 0;
 }
 
 Slider::~Slider()
@@ -79,7 +80,7 @@ bool Slider::OnMouseMoved(int x, int y)
  			value = max;
 
 	if (value != oldValue)
-		RunAction(modified);
+		RunAction(actionModified);
 	return true;
 }
 

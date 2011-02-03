@@ -19,7 +19,7 @@ Scrollbox::Scrollbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
 	vScroll = 0.0f;
 	scrolling = 0;
 	xShift=yShift=0;
-	scrolled = NULL;
+	actionScrolled = 0;
 	SetScrollingBounds(1, 1);
 }
 
@@ -52,7 +52,7 @@ void Scrollbox::SetScrollingBounds(float hMax, float vMax)
 	if (oldHScroll != hScroll || oldVScroll != vScroll)
 	{
 		OnScroll(hScroll - oldHScroll, vScroll - oldVScroll);
-		RunAction(scrolled);
+		RunAction(actionScrolled);
 	}
 }
 
@@ -194,7 +194,7 @@ bool Scrollbox::OnMouseMoved(int x, int y)
 	if (oldHScroll != hScroll || oldVScroll != vScroll)
 	{
 		OnScroll(hScroll - oldHScroll, vScroll - oldVScroll);
-		RunAction(scrolled);
+		RunAction(actionScrolled);
 	}
 	return true;
 }

@@ -18,6 +18,8 @@ struct Inputbox : public Control
 
 	MyString text;
 
+	CallbackActionFunc actionPressed;
+
 
 	Inputbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Inputbox();
@@ -28,8 +30,8 @@ struct Inputbox : public Control
 
 	virtual void Render();
 
-	virtual bool OnKeyDown(int key, unsigned char code);
-	virtual bool OnKeyUp(int key, unsigned char code);
+	virtual bool OnKeyDown(int key, unsigned wchar_t code);
+	virtual bool OnKeyUp(int key, unsigned wchar_t code);
 
 	protected:
 

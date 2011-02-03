@@ -16,6 +16,7 @@ struct Passwordbox : public Control
 	MyString text;
 	std::wstring password;
 
+	CallbackActionFunc actionPressed;
 
 	Passwordbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Passwordbox();
@@ -26,8 +27,8 @@ struct Passwordbox : public Control
 
 	virtual void Render();
 
-	virtual bool OnKeyDown(int key, unsigned char code);
-	virtual bool OnKeyUp(int key, unsigned char code);
+	virtual bool OnKeyDown(int key, unsigned wchar_t code);
+	virtual bool OnKeyUp(int key, unsigned wchar_t code);
 
 	protected:
 

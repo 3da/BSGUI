@@ -15,6 +15,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
+#include <wchar.h>
 
 namespace BSGUI
 {
@@ -41,7 +42,7 @@ static void CloseFileBrowserAction(Control *sender)
 		browser->ReloadFiles();
 		return;
 	}
-	Control::RunActionOf(browser, browser->selected);
+	Control::RunActionOf(browser, browser->actionSelected);
 	delete browser;
 }
 
@@ -61,17 +62,19 @@ FileBrowser::FileBrowser(Theme &t, Screen *screen, const MyString caption, const
 	Center();
 	this->path = path;
 
+	actionSelected = 0;
+
 	GetClientSize(w,h);
 
 	l = new Label(this, t, 5, 5, L"Files and directories:");
 	files = new Listbox(this, t, 5, l->y2 + 5, w-10, h-40);
-	files->modified = SelectFileBrowserAction;
+	files->actionModified = SelectFileBrowserAction;
 	l = new Label(this, t, 5, files->y2+9, L"Filename:");
 	filename = new Inputbox(this, t, l->x2 + 5, files->y2 + 5, w-130, files->y2 + 30);
 	b = new Button(this, t, w-125, files->y2 + 5, w-70, files->y2 + 30, L"Ok");
-	b->clicked = CloseFileBrowserAction;
+	b->actionPressed = CloseFileBrowserAction;
 	b = new Button(this, t, w-65, files->y2 + 5, w-10, files->y2+30, L"Cancel");
-	b->clicked = CancelFileBrowserAction;
+	b->actionPressed = CancelFileBrowserAction;
 
 	ReloadFiles();
 
@@ -104,9 +107,9 @@ void FileBrowser::ReloadFiles()
 		DIR	*dir2 = opendir(dent->d_name);
 		if (dir2)
 		{
-			wchar_t *buff = (wchar_t*)malloc(strlen(dent->d_name)+2);
+			char *buff = (char*)malloc(strlen(dent->d_name)+2);
 			closedir(dir2);
-			swprintf(buff, L"/%s", dent->d_name);
+			sprintf(buff, "/%s", dent->d_name);
 			files->AddItem(buff);
 			free(buff);
 		}

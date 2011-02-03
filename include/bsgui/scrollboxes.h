@@ -19,7 +19,7 @@ struct Scrollbox : public Control
 	float   hScroll;
 	float   vScroll;
 	int	scrolling;      // 0=no, 1=vertical, 2=horizontal
-	CallbackActionFunc scrolled;
+	CallbackActionFunc actionScrolled;
 
 	Scrollbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Scrollbox();

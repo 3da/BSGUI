@@ -181,11 +181,11 @@ bool HandleSDLEvent(SDL_Event *ev)
 		case SDL_KEYDOWN:
 			if (!(Control::keyboardFocusControl && Control::keyboardFocusControl->Focused()))
 				return false;
-			return Control::keyboardFocusControl->OnKeyDown(ev->key.keysym.sym, ev->key.keysym.unicode&0x7F);
+			return Control::keyboardFocusControl->OnKeyDown(ev->key.keysym.sym, ev->key.keysym.unicode);
 		case SDL_KEYUP:
 			if (!(Control::keyboardFocusControl && Control::keyboardFocusControl->Focused()))
 				return false;
-			return Control::keyboardFocusControl->OnKeyUp(ev->key.keysym.sym, ev->key.keysym.unicode&0x7F);
+			return Control::keyboardFocusControl->OnKeyUp(ev->key.keysym.sym, ev->key.keysym.unicode);
 	}
 	return false;
 }

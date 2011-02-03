@@ -31,7 +31,7 @@ Control::Control(Control *parent, Theme &t)
 	mouseOverControl = false;
 	popupMenu = 0;
 	exclusiveChild = 0;
-	clicked = modified = selected = moved = resized = 0;
+	actionClicked = 0;
 	visible = true;
 	theme = t;
 }
@@ -238,10 +238,10 @@ void Control::Place(int x1, int y1, int x2, int y2)
 	if (x2 - x1 != oldW || y2 - y1 != oldH)
 	{
 		performLayout = true;
-		RunAction(resized);
+		RunAction(actionResized);
 	}
 	if (x1 != oldX1 || y1 != oldY1)
-		RunAction(moved);
+		RunAction(actionMoved);
 }
 
 void Control::Move(int x, int y)
@@ -365,7 +365,7 @@ bool Control::OnMouseDown(int x, int y, int b)
 	{
 		SetKeyboardFocus();
 		Focus();
-		RunAction(clicked);
+		RunAction(actionClicked);
 		return true;
 	}
 	/*if (b == 3)

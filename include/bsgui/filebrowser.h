@@ -16,6 +16,8 @@ struct FileBrowser : public Window
 	class Inputbox *filename;
 	MyString path;
 
+	CallbackActionFunc actionSelected;
+
 	FileBrowser(Theme &t, Screen *screen, const MyString caption, const MyString path=MyString());
 	virtual ~FileBrowser();
 

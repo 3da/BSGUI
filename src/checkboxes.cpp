@@ -12,12 +12,13 @@ namespace BSGUI
 {
 
 Checkbox::Checkbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const MyString caption)
-:Control(parent,t)
+:Button(parent,t, x1, y1, x2, y2, caption, 0)
 {
 	Place(x1, y1, x2, y2);
 	hover = pushed = false;
 	checked = false;
 	this->caption = caption;
+	actionModified = 0;
 }
 
 Checkbox::~Checkbox()
@@ -53,13 +54,7 @@ void Checkbox::Render()
 
 bool Checkbox::OnMouseDown(int x, int y, int b)
 {
-	Focus();
-	if (b == 1)
-	{
-		SetMouseTracking();
-		pushed = true;
-	}
-	return true;
+	return Button::OnMouseDown(x, y, b);
 }
 
 bool Checkbox::OnMouseUp(int x, int y, int b)
@@ -72,7 +67,7 @@ bool Checkbox::OnMouseUp(int x, int y, int b)
 		if (hover)
 		{
 			checked=!checked;
-			RunAction(modified);
+			RunAction(actionModified);
  		}
 	}
 	pushed = false;

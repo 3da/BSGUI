@@ -26,6 +26,7 @@ Button::Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const 
 	pushed = highlighted = false;
 	this->bitmap = bitmap;
 	autoDeleteBitmap = true;
+	actionPressed = 0;
 }
 
 Button::~Button()
@@ -82,13 +83,11 @@ void Button::Render()
 
 bool Button::OnMouseDown(int x, int y, int b)
 {
-	Focus();
 	if (b == 1)
 	{
-		SetMouseTracking();
 		pushed = true;
-		return true;
 	}
+	return Control::OnMouseDown(x, y, b);
 }
 
 bool Button::OnMouseUp(int x, int y, int b)
@@ -99,7 +98,7 @@ bool Button::OnMouseUp(int x, int y, int b)
 	{
 		ClearMouseTracking();
 		if (mouseOverControl)
-			RunAction(clicked);
+			RunAction(actionPressed);
 	}
 	pushed = false;
 	return true;

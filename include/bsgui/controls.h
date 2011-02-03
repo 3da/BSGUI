@@ -40,11 +40,9 @@ struct Control
 
 	Theme theme;
 
-	CallbackActionFunc clicked;
-	CallbackActionFunc modified;
-	CallbackActionFunc selected;
-	CallbackActionFunc moved;
-	CallbackActionFunc resized;
+	CallbackActionFunc actionClicked;
+	CallbackActionFunc actionResized;
+	CallbackActionFunc actionMoved;
 
 	struct PopupMenu *popupMenu;
 

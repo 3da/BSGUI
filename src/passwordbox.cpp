@@ -14,6 +14,7 @@ Passwordbox::Passwordbox(Control *parent, Theme &t, int x1, int y1, int x2, int 
 	Place(x1, y1, x2, y2);
 	tScroll = 0;
 	cursor = cursorX = 0;
+	actionPressed = 0;
 }
 
 Passwordbox::~Passwordbox()
@@ -48,7 +49,7 @@ void Passwordbox::Render()
 	theme.DrawRect(x1, y1, x2, y2);
 }
 
-bool Passwordbox::OnKeyDown(int key, unsigned char ascii)
+bool Passwordbox::OnKeyDown(int key, unsigned wchar_t ascii)
 {
 	int     w, h;
 	GetClientSize(w, h);
@@ -70,11 +71,15 @@ bool Passwordbox::OnKeyDown(int key, unsigned char ascii)
 			}
 			return true;
 			break;
+		case '\n':
+		case '\r':
+			RunAction(actionPressed);
+			break;
 		case 0:
 			return false;
 			break;
 		default:
-			if (ascii < 32 || ascii > 127)
+			if (ascii < 32)
 			        break;
 			text.push_back(ascii);
 			password.push_back('*');
@@ -87,7 +92,7 @@ bool Passwordbox::OnKeyDown(int key, unsigned char ascii)
 	}
 }
 
-bool Passwordbox::OnKeyUp(int key, unsigned char ascii)
+bool Passwordbox::OnKeyUp(int key, unsigned wchar_t ascii)
 {
 	return false;
 }

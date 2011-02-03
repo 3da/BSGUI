@@ -17,6 +17,7 @@ Inputbox::Inputbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
 	Place(x1, y1, x2, y2);
 	tScroll = 0;
 	cursor = cursorX = 0;
+	actionPressed = 0;
 }
 
 Inputbox::~Inputbox()
@@ -51,7 +52,7 @@ void Inputbox::Render()
 	theme.DrawRect(x1, y1, x2, y2);
 }
 
-bool Inputbox::OnKeyDown(int key, unsigned char ascii)
+bool Inputbox::OnKeyDown(int key, unsigned wchar_t ascii)
 {
 	int w, h;
 	int x1, y1, x2, y2;
@@ -75,11 +76,15 @@ bool Inputbox::OnKeyDown(int key, unsigned char ascii)
 			}
 			return true;
 			break;
+		case '\n':
+		case '\r':
+			RunAction(actionPressed);
+			break;
 		case 0:
 			return false;
 			break;
 		default:
-			if (ascii < 32 || ascii > 127)
+			if (ascii < 32)
 			        break;
 			text.push_back(ascii);
 			cursor++;
@@ -91,7 +96,7 @@ bool Inputbox::OnKeyDown(int key, unsigned char ascii)
 	}
 }
 
-bool Inputbox::OnKeyUp(int key, unsigned char ascii)
+bool Inputbox::OnKeyUp(int key, unsigned wchar_t ascii)
 {
 	return false;
 }
