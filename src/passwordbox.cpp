@@ -92,12 +92,12 @@ bool Passwordbox::OnKeyUp(int key, unsigned char ascii)
 	return false;
 }
 
-const ch_t *Passwordbox::GetText()
+const MyString Passwordbox::GetText()
 {
-	return text.c_str();
+	return text;
 }
 
-void Passwordbox::SetText(const ch_t *t)
+void Passwordbox::SetText(const MyString t)
 {
 	int     w, h;
 	GetClientSize(w, h);

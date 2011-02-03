@@ -84,7 +84,7 @@ void Listbox::Clear()
 	Layout();
 }
 
-void Listbox::AddItem(const ch_t *text)
+void Listbox::AddItem(const MyString text)
 {
 
 	(new ListboxItem(this, theme))->text = text;
@@ -96,17 +96,13 @@ void Listbox::AddItem(ListboxItem *item)
 	AddChild(item);
 }
 
-ListboxItem *Listbox::FindItem(const ch_t *text)
+ListboxItem *Listbox::FindItem(const MyString text)
 {
 	std::vector<Control*>::iterator i;
 	for (i=childs.begin(); i!=childs.end(); i++)
 	{
 		ListboxItem *child = (ListboxItem*)(*i);
-#ifdef UNICODE
-		if (!wcscmp(child->text.c_str(), text))
-#else
-		if (!strcmp(child->text.c_str(), text))
-#endif
+		if (!wcscmp(child->text.c_str(), text.c_str()))
 		        return child;
 	}
 	return 0;

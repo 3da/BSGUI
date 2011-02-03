@@ -14,7 +14,7 @@ namespace BSGUI
 
 struct Window : public Control
 {
-	str_t caption;
+	MyString caption;
 	bool moving;
 	bool resizing;
 	bool resizeable;
@@ -23,7 +23,7 @@ struct Window : public Control
 	int mX, mY;
 	class Image *icon;
 
-	Window(Screen *screen, Theme &t, const ch_t *caption=0);
+	Window(Screen *screen, Theme &t, const MyString caption);
 	virtual ~Window();
 
 	virtual void Render();

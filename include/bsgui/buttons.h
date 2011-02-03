@@ -9,6 +9,7 @@
 
 #include "bsgui/controls.h"
 
+#include "MyString.h"
 
 
 namespace BSGUI
@@ -16,13 +17,13 @@ namespace BSGUI
 
 struct Button : public Control
 {
-	str_t caption;
+	MyString caption;
 	class Image *bitmap;
 	bool autoDeleteBitmap;
 	bool pushed;
 	bool highlighted;
 
-	Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const ch_t *caption, Image *bitmap=NULL);
+	Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const MyString caption, Image *bitmap=NULL);
 	virtual ~Button();
 
 	virtual void SetBitmap(Image *newBitmap, bool autoDelete);

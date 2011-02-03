@@ -53,11 +53,11 @@ Control::~Control()
 }
 
 
-Control *Control::FindChild(char *name)
+Control *Control::FindChild(MyString name)
 {
-	if (!name || !name[0])
+	if (name.empty())
 		return NULL;
-	if (!strcmp(name, this->name.c_str()))
+	if (!wcscmp(name.c_str(), this->name.c_str()))
 		return this;
 	std::vector<Control*>::iterator i;
 	for (i = childs.begin(); i!=childs.end(); i++)
@@ -381,12 +381,12 @@ bool Control::OnMouseUp(int x, int y, int b)
 	return false;
 }
 
-bool Control::OnKeyDown(int key, unsigned ch_t ascii)
+bool Control::OnKeyDown(int key, unsigned wchar_t ascii)
 {
 	return false;
 }
 
-bool Control::OnKeyUp(int key, unsigned ch_t ascii)
+bool Control::OnKeyUp(int key, unsigned wchar_t ascii)
 {
 	return false;
 }

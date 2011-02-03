@@ -398,14 +398,14 @@ bool BMFont::HasCharacter(unsigned long character)
 }
 
 
-float BMFont::GetStringWidth(const ch_t *string, float scale, unsigned long substrLength)
+float BMFont::GetStringWidth(const wchar_t *string, float scale, unsigned long substrLength)
 {
     const long maxLength = substrLength ? substrLength : 0x7fffffff;
     long a, w = 0, last = -1;
     bool escape = false;
     for (a = 0; a < maxLength && string[a]; ++a)
     {
-        char currentChar = string[a];
+        wchar_t currentChar = string[a];
         if (GetFlags() & Font::FF_HANDLE_BACKSLASH_ESCAPES)
         {
             if (escape)
@@ -420,7 +420,7 @@ float BMFont::GetStringWidth(const ch_t *string, float scale, unsigned long subs
             }
         }
 
-        unsigned long ch = currentChar & 0xff;
+        unsigned long ch = currentChar;
         long id = FindChar(ch);
         if (id == -1)
         {
@@ -437,7 +437,7 @@ float BMFont::GetStringWidth(const ch_t *string, float scale, unsigned long subs
 }
 
 
-float BMFont::DrawString(float x, float y, const ch_t *string, unsigned long flags, float scale, unsigned long substrLength)
+float BMFont::DrawString(float x, float y, const wchar_t *string, unsigned long flags, float scale, unsigned long substrLength)
 {
     long a, last = -1, lastIdx = -1, maxLength = substrLength ? (long)substrLength : 0x7fffffff;
     Rectangle rect;
@@ -473,7 +473,7 @@ float BMFont::DrawString(float x, float y, const ch_t *string, unsigned long fla
 
     for (a = 0; a < maxLength && string[a]; ++a)
     {
-        char currentChar = string[a];
+        wchar_t currentChar = string[a];
         if (GetFlags() & Font::FF_HANDLE_BACKSLASH_ESCAPES)
         {
             if (escape)
@@ -488,7 +488,7 @@ float BMFont::DrawString(float x, float y, const ch_t *string, unsigned long fla
             }
         }
 
-        unsigned long ch = currentChar & 0xff;
+        unsigned long ch = currentChar;
         long id = FindChar(ch);
 
         if (last != -1)

@@ -12,7 +12,6 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++0x" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -31,6 +30,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-static-libgcc" />
 			<Add directory="..\include" />
 			<Add directory="..\tools\SDL-1.2.14\include" />
 			<Add directory="..\tools\SDL_image-1.2.10\include" />

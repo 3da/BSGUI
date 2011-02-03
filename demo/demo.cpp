@@ -6,7 +6,7 @@
 #include <math.h>
 //#undef main
 
-#undef MessageBox
+
 
 using namespace BSGUI;
 
@@ -113,8 +113,8 @@ void RenderObjectAction(Control *sender)
 
 void FileSelectedAction(Control *sender)
 {
-	const char *fname = ((FileBrowser*)sender)->GetFilename();
-	printf("File selected: %s\n", fname);
+	//const char *fname = ((FileBrowser*)sender)->GetFilename().GetAscii();
+	//printf("File selected: %s\n", fname);
 }
 
 void SelectFileAction(Control *sender)

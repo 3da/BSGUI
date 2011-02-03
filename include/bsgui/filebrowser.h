@@ -14,12 +14,12 @@ struct FileBrowser : public Window
 {
 	class Listbox *files;
 	class Inputbox *filename;
-	str_t path;
+	MyString path;
 
-	FileBrowser(Theme &t, Screen *screen, const ch_t *caption, const ch_t *path=NULL);
+	FileBrowser(Theme &t, Screen *screen, const MyString caption, const MyString path=MyString());
 	virtual ~FileBrowser();
 
-	virtual const ch_t *GetFilename();
+	virtual const MyString GetFilename();
 	virtual void ReloadFiles();
 };
 

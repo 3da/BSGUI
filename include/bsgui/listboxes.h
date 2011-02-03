@@ -13,7 +13,7 @@ namespace BSGUI
 struct ListboxItem : public Control
 {
 	struct Listbox *box;
-	str_t text;
+	MyString text;
 	unsigned int index;
 	//unsigned int    minimumWidth;
 	unsigned int    itemHeight;
@@ -35,9 +35,9 @@ struct Listbox : public Scrollbox
 	virtual ~Listbox();
 
 	virtual void Clear();
-	virtual void AddItem(const ch_t *text);
+	virtual void AddItem(const MyString text);
 	virtual void AddItem(ListboxItem *item);
-	virtual ListboxItem *FindItem(const ch_t *text);
+	virtual ListboxItem *FindItem(const MyString text);
 	virtual ListboxItem *GetItem(unsigned int index);
 	virtual void RemoveItem(ListboxItem *item);
 	virtual void SelectItem(unsigned int index);

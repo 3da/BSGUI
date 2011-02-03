@@ -15,15 +15,14 @@
 namespace BSGUI
 {
 
-Window::Window(Screen *screen, Theme &t, const ch_t *caption)
+Window::Window(Screen *screen, Theme &t, const MyString caption)
 	: Control(screen, t)
 {
 	moving = resizing = resizeable = false;
 	minWidth = 50;
 	minHeight = 25;
 	Place(10, 10, 200, 160);
-	if (caption)
-		this->caption = caption;
+	this->caption = caption;
 	icon = 0;
 	movable = true;
 }

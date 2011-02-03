@@ -16,14 +16,14 @@ struct Inputbox : public Control
 	int cursor;
 	int cursorX;
 
-	str_t text;
+	MyString text;
 
 
 	Inputbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Inputbox();
 
-	void SetText(const ch_t *text);
-	const ch_t *GetText();
+	void SetText(const MyString text);
+	const MyString GetText();
 
 
 	virtual void Render();

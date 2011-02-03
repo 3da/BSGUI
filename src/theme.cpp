@@ -26,16 +26,16 @@ Theme::Theme()
 }
 
 
-void Theme::DrawString(int x, int y, const ch_t *str, bool center)
+void Theme::DrawString(int x, int y, const MyString str, bool center)
 {
 	if (font)
-		font->DrawString(x,y,str,(center)?IF_ALIGN_CENTER:IF_ALIGN_VERT_CENTER,fontSize);
+		font->DrawString(x,y,str.c_str(),(center)?IF_ALIGN_CENTER:IF_ALIGN_VERT_CENTER,fontSize);
 }
 
-int Theme::StringWidth(const ch_t *str)
+int Theme::StringWidth(const MyString str)
 {
 	if (font)
-		return font->GetStringWidth(str, fontSize);
+		return font->GetStringWidth(str.c_str(), fontSize);
 	else
 		return 0;
 }

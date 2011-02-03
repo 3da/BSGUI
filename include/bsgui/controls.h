@@ -5,10 +5,10 @@
 #ifndef __BSGUI_CONTROLS_H_INCLUDED__
 #define __BSGUI_CONTROLS_H_INCLUDED__
 
-#include "config.h"
 #include <vector>
 #include "bsgui/actions.h"
 #include "bsgui/theme.h"
+#include "MyString.h"
 
 namespace BSGUI
 {
@@ -21,7 +21,7 @@ struct Control
 
 	Control *exclusiveChild;
 
-	std::string name;
+	MyString name;
 	int xShift;
 	int yShift;
 	int x1;
@@ -51,7 +51,7 @@ struct Control
 	Control(Control *parent, Theme &theme);
 	virtual ~Control();
 
-	virtual Control *FindChild(char *name);
+	virtual Control *FindChild(MyString name);
 
 	virtual void AddChild(Control *child);
 	virtual void RemoveChild(Control *child);
@@ -92,8 +92,8 @@ struct Control
 	virtual bool OnMouseDown(int x, int y, int b);
 	virtual bool OnMouseUp(int x, int y, int b);
 	// keyboard events
-	virtual bool OnKeyDown(int key, unsigned ch_t code);
-	virtual bool OnKeyUp(int key, unsigned ch_t code);
+	virtual bool OnKeyDown(int key, unsigned wchar_t code);
+	virtual bool OnKeyUp(int key, unsigned wchar_t code);
 	// focus events
 	virtual void OnFocusEnter() {};
 	virtual void OnFocusExit() {};

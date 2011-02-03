@@ -11,12 +11,12 @@
 namespace BSGUI
 {
 
-Label::Label(Control *parent, Theme &t, int x, int y, const ch_t *text)
+Label::Label(Control *parent, Theme &t, int x, int y, const MyString text)
 	: Control(parent, t)
 {
 	Move(x, y);
 	this->text = text;
-	Resize(theme.StringWidth(text), theme.height);
+	Resize(theme.StringWidth(text.c_str()), theme.height);
 
 }
 
@@ -24,10 +24,10 @@ Label::~Label()
 {
 }
 
-void Label::SetText(const ch_t *t)
+void Label::SetText(const MyString t)
 {
 	text = t;
-	Resize(theme.StringWidth(t), theme.height);
+	Resize(theme.StringWidth(t.c_str()), theme.height);
 
 }
 

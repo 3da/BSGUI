@@ -7,17 +7,18 @@
 
 #include "bsgui/theme.h"
 
+#include "bsgui/mystring.h"
+
+
+#undef MessageBox
+
 namespace BSGUI
 {
 
 void MessageBox(
 				Theme &t,
-				const ch_t *msg,
-#ifdef UNICODE
-				const ch_t *caption=L"Message",
-#else
-				const ch_t *caption="Message",
-#endif
+				const MyString msg,
+				const MyString caption=L"Message",
 				bool exclusive=true
 				);
 

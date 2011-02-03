@@ -8,6 +8,7 @@
 #include <string>
 
 #include "bsgui/controls.h"
+#include "MyString.h"
 
 namespace BSGUI
 {
@@ -16,7 +17,7 @@ struct Checkbox : public Control
 {
 
 
-	Checkbox(Control *parent, Theme&, int x1, int y1, int x2, int y2, const ch_t *caption);
+	Checkbox(Control *parent, Theme&, int x1, int y1, int x2, int y2, const MyString caption);
 	virtual ~Checkbox();
 
 
@@ -27,7 +28,7 @@ struct Checkbox : public Control
 	virtual void OnMouseEnter();
 	virtual void OnMouseExit();
 
-	str_t caption;
+	MyString caption;
 
 	bool checked;
 	bool hover;
