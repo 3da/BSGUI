@@ -226,14 +226,19 @@ void CreateUI()
 	win = new Window(screen1, themeDefault, "Unmovable window");
 	win->Center();
 	win->movable = false;
-
-
-
  	new Label(win, themeDefault, 5, 0, "A Label");
-
  	(new Button(win, themeDefault, 10, 25, 180, 50, "About"))->actionPressed = AboutBoxAction;
  	(new Button(win, themeDefault, 10, 55, 180, 80, "Use red theme"))->actionPressed = SetThemeRed;
  	(new Button(win, themeDefault, 10, 85, 180, 110, "Use default theme"))->actionPressed = SetThemeDefault;
+
+	Window *win11 = new Window(screen1, themeRed, "Unicode test window");
+	win11->movable = false;
+	win11->Move(0, 400);
+	win11->Center(true, false);
+ 	new Label(win11, themeRed, 5, 0, L"Русский язык");
+ 	new Label(win11, themeRed, 5, 50, L"Қазақ тілі");
+
+
 
 	Window	*win2 = new Window(screen1, themeDefault, "Fluffy window");
 	win2->Center();

@@ -81,7 +81,6 @@
 		<Unit filename="src\draw.cpp" />
 		<Unit filename="src\filebrowser.cpp" />
 		<Unit filename="src\font.cpp" />
-		<Unit filename="src\image.cpp" />
 		<Unit filename="src\imageopengl.cpp" />
 		<Unit filename="src\inputboxes.cpp" />
 		<Unit filename="src\labels.cpp" />
