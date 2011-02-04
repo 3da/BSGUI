@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>tutorial</title>
+</head>
+<body>
+<h1>BSGUI 0.1 quick-start tutorial<br>
+</h1>
+<h2>What is this and what it assumes?</h2>
+<div style="margin-left: 40px;">This is a <span
+ style="font-style: italic;">quick-start</span> tutorial on BSGUI. This
+tutorial will show you how to initialize and use BSGUI. It assumes that
+you know C++ and you have already BSGUI 0.1 installed to your system.<br>
+</div>
+<h2>Using BSGUI<br>
+</h2>
+<div style="margin-left: 40px;">To use BSGUI, include the following
+header file:<br>
+<div style="margin-left: 40px;">
+<pre>#include &lt;bsgui/bsgui.h&gt;</pre>
+</div>
+in your OpenGL application, after the inclusion of SDL.h.<br>
+</div>
+<h2>Initializing BSGUI</h2>
+<div style="margin-left: 40px;">After you initialize OpenGL, call the <span
+ style="font-family: monospace;">initBSGUI()</span> function to
+initialize BSGUI. <span style="font-family: monospace;">initBSGUI</span>
+returns <span style="font-family: monospace;">true</span> if the
+library has been initialized correctly, or <span
+ style="font-family: monospace;">false</span> if not.<br>
+</div>
+<h2>Creating a plain window</h2>
+<div style="margin-left: 40px;">After having BSGUI initialized, you can
+create some UI elements. Here is how to create a plain window, center
+it to the screen and add a button to it:<br>
+<pre style="margin-left: 40px;">Window	*win = new Window("A plain window");<br>win-&gt;center();<br><br>Button	*button = new Button(w, 10, 25, 180, 50, "Hello, world!");<br></pre>
+See the files in "include/bsgui" and the "demo/demo.cpp" file for more
+controls.<br>
+<h3>The screen control</h3>
+<div style="margin-left: 40px;">The controls in BSGUI form a <span
+ style="font-style: italic;">tree</span>. Each control can be the
+parent of another control (however it depends on the control to render
+it's children by calling the <span style="font-family: monospace;">Control::render()</span>
+function). The base of all is the <span style="font-family: monospace;">screen</span>
+control, which is the parent of all <span
+ style="font-family: monospace;">Window</span> controls. This control
+has some special fields about the screen properties. These fields are:<br>
+<br>
+<div style="margin-left: 40px;"><span style="font-weight: bold;">width </span>-
+the screen's width in pixels (as returned by <span
+ style="font-family: monospace;">glGetIntegerv(GL_VIEWPORT, vp)</span>
+in <span style="font-style: italic;">main.cpp</span>)<br>
+<span style="font-weight: bold;">height</span> - the screen's height in
+pixels<br>
+<span style="font-weight: bold;">mouseX</span> - the mouse's X position
+in pixels<br>
+<span style="font-weight: bold;">mouseY</span> - the mouse's Y position
+in pixels<br>
+</div>
+</div>
+</div>
+<h2>Actions</h2>
+<div style="margin-left: 40px;">The button as it is now, does nothing
+if you click it. To make it do something, you must assign it an <span
+ style="font-style: italic;">action</span>. Actions are classes derived
+from the <span style="font-family: monospace;">Action</span> abstract
+class and have a single function which you must override in order to do
+something: <span style="font-family: monospace;">run()</span>. A
+simple declaration of an action class is the following:<br>
+<pre style="margin-left: 40px;">struct MyAction : public Action<br>{<br>	virtual void run(Control *sender)<br>	{<br>		// do something<br>	} <br>};<br><br></pre>
+The "sender" argument is the control that <span
+ style="font-style: italic;">sent</span> the action. In our case this
+would be the button control. To assign an action to a control, just
+make a new instance of it. For example:<br>
+<pre style="margin-left: 40px;">button-&gt;clicked = new MyAction;</pre>
+Do not worry about memory leaks; the button control will delete the
+action object when the button itself gets deleted.<br>
+<br>
+In many cases, however, you only need to call a single function.
+Creating a new class just for that is a lot of work for nothing. For
+this reason, BSGUI provides the <span style="font-family: monospace;">CallbackAction</span>
+class. This class calls a callback function like:<br>
+<pre style="margin-left: 40px;">void callbackFunction(Control *sender);</pre>
+So the example above can become:<br>
+<pre style="margin-left: 40px;">button-&gt;clicked = new CallbackAction(buttonClickedAction);<br></pre>
+<h3>Shared actions</h3>
+<div style="margin-left: 40px;">The idea behind actions is to share
+actions between objects. However, the default behavior of an action
+object is to get deleted by the control that it gets attached to. For
+this reason, if you want to share an action, you need to set the <span
+ style="font-family: monospace;">autoDelete</span> field of the action
+to <span style="font-family: monospace;">false</span>. For example:<br>
+<pre style="margin-left: 40px;">// create the action and set the autoDelete to false<br>MyAction	*action = new MyAction;<br>action-&gt;autoDelete = false;<br><br>// use the action<br>button-&gt;clicked = action;<br>button2-&gt;clicked = action;<br></pre>
+</div>
+</div>
+<h2>Final UI creation code</h2>
+<div style="margin-left: 40px;">So the UI creating code quickly becomes
+something like...:<br>
+<pre style="margin-left: 40px;"><br>void buttonClickedAction(Control *sender)<br>{<br>	printf("Hello, world!\n");<br>}<br><br>void createUI()<br>{<br>	Window	*win = new Window("A plain window");<br>	win-&gt;center();<br><br>	Button	*button = new Button(w, 10, 25, 180, 50, "Hello, world!");<br>	button-&gt;clicked = new CallbackAction(buttonClickedAction);<br>}<br></pre>
+</div>
+<h2>Rendering the GUI<br>
+</h2>
+<div style="margin-left: 40px;">To render the GUI just call the <span
+ style="font-family: monospace;">renderBSGUI()</span> function before
+calling <span style="font-family: monospace;">SDL_GL_SwapBuffers()</span>.
+Note that BSGUI tries to not alter the OpenGL state in any way, by <span
+ style="font-style: italic;">saving the current state</span> and
+restoring it after it renders all of it's elements, but <span
+ style="font-weight: bold;">do not rely on that!</span> A typical
+rendering code for only the GUI itself is:<br>
+<pre style="margin-left: 40px;">glClear(GL_COLOR_BUFFER_BIT);<br>renderBSGUI(); 	<br>SDL_GL_SwapBuffers();<br></pre>
+</div>
+<h2>Passing SDL events to BSGUI and the main loop<br>
+</h2>
+<div style="margin-left: 40px;">There are two remaining things you must
+take care of (except shutting down BSGUI, of course) in order to have a
+functional GUI: how to pass SDL events to BSGUI and how the main loop
+should be. First of all, BSGUI need to know about the events that SDL
+sends to the application, so it provides the function <span
+ style="font-family: monospace;">handleSDLEvent</span>. This function
+must be called everytime a new SDL event comes aboard. The function
+returns false if the program should ignore the event.<br>
+<br>
+Except the event passing function, you need to call the <span
+ style="font-family: monospace;">tickBSGUI()</span> in your main loop,
+preferably before rendering the GUI. This function is responsible for
+setting up some <span style="font-style: italic;">lazy states</span>
+and calling the tick() function of the screen control (which in turn
+calls all tick functions of the whole tree).<br>
+<br>
+This can be done with the following main loop:<br>
+<pre style="margin-left: 40px;">SDL_Event	event;<br>bool		running = true; <br><br>while (running)<br>{&nbsp;<br>	tickBSGUI();<br>	while (SDL_PollEvent(&amp;event))<br>	{<br>		if (!handleSDLEvent(&amp;event))<br>			switch (event.type)<br>			{<br>				case SDL_QUIT:<br>					running = false;<br>				break;<br>			}<br>	}<br>	render();<br>}<br></pre>
+</div>
+<h2>Shutting down BSGUI</h2>
+<div style="margin-left: 40px;">To shut down the library call the <span
+ style="font-family: monospace;">shutdownBSGUI()</span> function before
+shutting down SDL. Example:<br>
+<pre style="margin-left: 40px;">shutdownBSGUI();<br>SDL_Quit();<br></pre>
+</div>
+<h2>For more information</h2>
+<div style="margin-left: 40px;">Check the <a
+ href="http://www.slashstone.com/more/bsgui">BSGUI homepage</a> for
+updates.<br>
+<br>
+</div>
+<br>
+</body>
+</html>

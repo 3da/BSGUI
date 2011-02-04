@@ -1,0 +1,8 @@
+BSGUI Readme
+==============================
+
+GUI system based on Bad Sector's OpenGL GUI.
+
+Look demo.cpp to overview it.
+
+Copyright (C) 2011 Alexey Adamenko

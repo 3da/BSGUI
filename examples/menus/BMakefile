@@ -1,0 +1,18 @@
+#
+# BSGUI BMakefile
+#
+
+.LANGUAGE C++
+.OUTPUT menus
+.CFLAGS -Wall -I../../include -g3
+.LDFLAGS -L../../lib
+
+.CFILES menus
+
+.FOR LINUX
+.LIBS SDL GL GLU bsgui
+
+
+.FOR WIN32
+.LIBS bsgui SDL opengl32 glu32 stdc++ bsgui
+.OUTPUT menus.exe
