@@ -36,7 +36,8 @@ struct Theme
 	Color colorFrameHovered;
 	Color colorFrameNormal;
 	Color colorLines;
-	Color colorTitle;
+	Color colorTitleFocused;
+	Color colorTitleUnfocused;
 	Color colorTitleText;
 
 

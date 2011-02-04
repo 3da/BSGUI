@@ -125,6 +125,9 @@ void Listbox::RemoveItem(ListboxItem *item)
 {
 	if (!item)
 	        return;
+	unsigned int indexLast = item->index;
+	unsigned int index = 0;
+
 	if (item == active)
 	{
 		active = 0;

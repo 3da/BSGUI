@@ -261,7 +261,6 @@ void CreateUI()
 	Inputbox *inpBox11 = new Inputbox(win2, themeDefault, 10, 270, 175, 295);
 	inpBox11->name = "inputbox";
 	inpBox11->actionPressed = AddTheAboveTextAction;
-	(new Inputbox(win2, themeDefault, 10, 270, 175, 295))->name = "inputbox";
 	(new Button(win2, themeDefault, 10, 300, 175, 325, "Add the above text"))->actionPressed = AddTheAboveTextAction;
 
 	ProgressBar	*pbar = new ProgressBar(win2, themeDefault, 10, 330, 175, 355);
@@ -305,7 +304,7 @@ void CreateUI()
 	//ModelView *mview = new ModelView(win4, 10, 10, 175, 110);
 	//mview->renderView = new CallbackAction(renderObjectAction);
 
-	Window *win5 = new Window(screen1, themeDefault, "Image control");
+	Window *win5 = new Window(screen1, themeDefault, "Resizeable window");
 	win5->Center();
 	win5->Move(win5->x1, win5->y1 - 160);
 	Image *img = ImageOpenGL::LoadImage("spongebob.jpg");
@@ -316,14 +315,6 @@ void CreateUI()
 	win5->actionResized = ImageWinResizedAction;
 	Picture *bob = new Picture(win5, themeDefault, 10,10, width-10, height-30, img);
 	bob->name = "bob";
-
-	//cenda->Center();
-	//cenda->name = "cenda";
-	//cenda->clicked = new CallbackAction(cendaClicked);
-	//win5->resizeable = true;
-	//win5->resized = new CallbackAction(imageWinResizedAction);
-	//win5->icon = new Bitmap(INTERNALBMP_WINICON);
-	win5->movable = false;
 
 	(new Button(Screen::screen, themeDefault, 750, 5, 795, 30, "Quit"))->actionPressed = TerminateAppAction;
 

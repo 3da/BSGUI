@@ -21,7 +21,8 @@ Theme::Theme()
 	colorFrameFocused.Set(0.6, 0.6, 0.6, 0.5);
 	colorFrameHovered.Set(0.3, 0.3, 0.3, 0.5);
 	colorLines.Set(1.0,1.0,1.0, 0.5);
-	colorTitle.Set(0.6,0.5,0.6, 0.7);
+	colorTitleUnfocused.Set(0.7,0.8,0.8, 0.7);
+	colorTitleFocused.Set(0.7, 0.8, 0.9, 0.7);
 	colorTitleText.Set(0.9,0.9,0.9, 0.5);
 }
 

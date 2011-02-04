@@ -36,6 +36,8 @@ Control::Control(Control *parent, Theme &t)
 	actionMoved = 0;
 	visible = true;
 	theme = t;
+
+	childFocus = 0;
 }
 
 Control::~Control()
@@ -96,8 +98,10 @@ void Control::RemoveChild(Control *child)
 			childs.erase(i);
 			break;
 		}
-
 	}
+
+	if (childFocus == child)
+		childFocus = 0;
 
 	performLayout = true;
 }

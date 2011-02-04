@@ -90,6 +90,7 @@ bool Passwordbox::OnKeyDown(int key, unsigned wchar_t ascii)
 			return true;
 			break;
 	}
+	return false;
 }
 
 bool Passwordbox::OnKeyUp(int key, unsigned wchar_t ascii)

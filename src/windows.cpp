@@ -36,11 +36,13 @@ Window::~Window()
 void Window::Render()
 {
 	int	x1, y1, x2, y2;
-	int	clen;
 	GetBounds(x1, y1, x2, y2);
 
 
-	theme.colorTitle.Use();
+	if (Focused())
+		theme.colorTitleFocused.Use();
+	else
+		theme.colorTitleUnfocused.Use();
 	theme.FillRect(x1, y1, x2, y1+theme.height);
 	if (Focused())
 		theme.colorFrameFocused.Use();
@@ -50,7 +52,7 @@ void Window::Render()
 	theme.colorLines.Use();
 	theme.DrawRect(x1, y1, x2, y2);
 
-	theme.colorTextUnfocused.Use();
+	theme.colorTitleText.Use();
 	theme.DrawString((x2-x1)/2 + x1, y1 + theme.height/2, caption.c_str(), true);
 
 	Control::Render();
@@ -68,7 +70,7 @@ void Window::Render()
 
 bool Window::OnMouseDown(int x, int y, int b)
 {
-	int	x1, y1, x2, y2, titleY2;
+	int	x1, y1, x2, y2;
 	GetBounds(x1, y1, x2, y2);
 
 	if (b == 1)

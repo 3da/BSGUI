@@ -94,6 +94,7 @@ bool Inputbox::OnKeyDown(int key, unsigned wchar_t ascii)
 			return true;
 			break;
 	}
+	return false;
 }
 
 bool Inputbox::OnKeyUp(int key, unsigned wchar_t ascii)

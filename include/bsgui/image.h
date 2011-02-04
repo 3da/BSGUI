@@ -41,7 +41,10 @@ struct Color
 		a = alpha;
 	}
 
-	void Use();
+	inline void Use()
+	{
+		glColor4fv(c);
+	}
 };
 
 struct Rectangle
