@@ -36,6 +36,7 @@ static int	orthoEnableCount = 0;
 
 static Image *cursorImage;
 static ClipArea	*carea = 0;
+static unsigned long cursorFlags = IF_ALIGN_TOP_LEFT;
 
 void Draw::EnableOrtho()
 {
@@ -73,7 +74,12 @@ bool Draw::SetCursorImage(Image *image)
 void Draw::DrawCursor(int x, int y)
 {
 	Color(1,1,1,1).Use();
-	cursorImage->Draw(x, y);
+	cursorImage->Draw(IDM_NORMAL, cursorFlags, x, y);
+}
+
+void Draw::SetCursorAlign(unsigned long flags)
+{
+	cursorFlags	= flags;
 }
 
 

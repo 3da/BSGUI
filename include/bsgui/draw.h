@@ -24,6 +24,7 @@ namespace Draw
 
 	bool SetCursorImage(Image *image);
 	void DrawCursor(int x, int y);
+	void SetCursorAlign(unsigned long flags);
 
 	//bool SetBaseFont(Font *font);
 
