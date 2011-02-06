@@ -20,7 +20,7 @@ static void CloseMessageBox(Control *sender)
 	delete sender->parent;
 }
 
-void MessageBox(Theme &t, ch_t *msg, ch_t *caption, bool exclusive)
+void MessageBox(Theme &t, const ch_t *msg, const ch_t *caption, bool exclusive)
 {
 	Window *w = new Window(Screen::screen, t, caption);
 	Label *l = new Label(w, t, 20, 20, msg);
