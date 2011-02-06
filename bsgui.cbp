@@ -62,16 +62,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add directory="include" />
-			<Add directory="..\tools\SDL-1.2.14\include" />
-			<Add directory="..\tools\SDL_image-1.2.10\include" />
-			<Add directory="..\tools\SDL-1.2.14\include\SDL" />
+			<Add directory="tools\SDL-1.2.14\include" />
+			<Add directory="tools\SDL_image-1.2.10\include" />
+			<Add directory="tools\SDL-1.2.14\include\SDL" />
 		</Compiler>
 		<Linker>
 			<Add library="SDL" />
-			<Add library="..\tools\SDL_image-1.2.10\lib\SDL_image.lib" />
+			<Add library="SDL_image" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
-			<Add directory="..\tools\SDL-1.2.14\lib" />
+			<Add directory="tools\SDL-1.2.14\lib" />
+			<Add directory="tools\SDL_image-1.2.10\lib" />
 		</Linker>
 		<Unit filename="include\bsgui\actions.h" />
 		<Unit filename="include\bsgui\bmfont.h" />
