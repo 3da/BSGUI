@@ -14,12 +14,12 @@ namespace BSGUI
 
 struct Label : public Control
 {
-	std::string text;
+	str_t text;
 
-	Label(Control *parent, Theme &t, int x, int y, char *text);
+	Label(Control *parent, Theme &t, int x, int y, const ch_t *text);
 	virtual ~Label();
 
-	void SetText(const char *text);
+	void SetText(const ch_t *text);
 
 	virtual void Render();
 };

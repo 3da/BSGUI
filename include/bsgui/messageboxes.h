@@ -10,7 +10,16 @@
 namespace BSGUI
 {
 
-void MessageBox(Theme &t, char *msg, char *caption="Message", bool exclusive=true);
+void MessageBox(
+				Theme &t,
+				const ch_t *msg,
+#ifdef UNICODE
+				const ch_t *caption=L"Message",
+#else
+				const ch_t *caption="Message",
+#endif
+				bool exclusive=true
+				);
 
 }
 

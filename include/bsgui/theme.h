@@ -2,6 +2,7 @@
 #define THEME_H_INCLUDED
 
 #include "bsgui/image.h"
+#include "config.h"
 
 namespace BSGUI
 {
@@ -11,8 +12,8 @@ struct Theme
 
 	Theme();
 
-	void DrawString(int x, int y, const char *str,  bool center);
-	int StringWidth(const char *str);
+	void DrawString(int x, int y, const ch_t *str,  bool center);
+	int StringWidth(const ch_t *str);
 
 	void DrawRect(int x1, int y1, int x2, int y2);
 	void FillRect(int x1, int y1, int x2, int y2);

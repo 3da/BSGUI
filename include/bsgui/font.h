@@ -2,6 +2,7 @@
 #define FONT_H_INCLUDED
 
 #include "image.h"
+#include "config.h"
 
 namespace BSGUI
 {
@@ -13,11 +14,11 @@ public:
 	class StringRowParser
 	{
 	public:
-		StringRowParser(Font *font, const char *string, float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
+		StringRowParser(Font *font, const ch_t *string, float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
 		//! Resets row parser. Returns true if successful, or false otherwise.
-		bool Reset(Font *font, const char *string, float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
+		bool Reset(Font *font, const ch_t *string, float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
 		//! Returns true if there was a row to return. Row info is written to arguments.
-		bool GetNextRow(const char *&oRowStart, unsigned long &oRowLength, float *oRowWidth);
+		bool GetNextRow(const ch_t *&oRowStart, unsigned long &oRowLength, float *oRowWidth);
 		//! Returns true if whole string has been parsed, or false otherwise.
 		bool Finished() const {
 			return mDone;
@@ -28,7 +29,7 @@ public:
 		}
 	protected:
 		Font *mFont;
-		const char *mString;
+		const ch_t *mString;
 		float mScale, mWrapAreaWidth;
 		long mMaxLength;
 		bool mWordWrapping;
@@ -36,7 +37,7 @@ public:
 		float mResultWidth;
 		long mResultRowCount;
 		long mTotalChars;
-		const char *mCurrentRowStart, *mCurrentWordStart;
+		const ch_t *mCurrentRowStart, *mCurrentWordStart;
 		long mCurrentRowLength, mCurrentWordLength;
 		float mCurrentRowWidth;
 		bool mDone;
@@ -92,10 +93,10 @@ public:
 	virtual bool HasCharacter(unsigned long character) = 0;
 
 	//! Returns width of given (sub-)string in given scale.
-	virtual float GetStringWidth(const char *string, float scale, unsigned long substrLength = 0) = 0;
+	virtual float GetStringWidth(const ch_t *string, float scale, unsigned long substrLength = 0) = 0;
 
 	//! Finds out metrics of given text (sub-)string in given scale. Returns number of rows in text.
-	virtual long GetStringMetrics(float &oWidth, float &oHeight, const char *string,
+	virtual long GetStringMetrics(float &oWidth, float &oHeight, const ch_t *string,
 								  float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
 
 	//! Sets draw mode for glyphs. \sa IMAGE_DRAW_MODE
@@ -119,7 +120,7 @@ public:
 	 * \param substrLength length of substring to draw, or 0 to draw whole string.
 	 * \return string width.
 	 */
-	virtual float DrawString(float x, float y, const char *string,
+	virtual float DrawString(float x, float y, const ch_t *string,
 							 unsigned long flags = IF_ALIGN_TOP_LEFT, float scale = 1, unsigned long substrLength = 0) = 0;
 
 	//! Draws a text block.
@@ -134,7 +135,7 @@ public:
 	 * \param substrLength length of substring to draw, or 0 to draw whole text.
 	 * \return number of rows in drawn text.
 	 */
-	virtual long DrawText(float x, float y, const char *text,
+	virtual long DrawText(float x, float y, const ch_t *text,
 						  unsigned long flags = IF_ALIGN_TOP_LEFT, float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
 
 protected:

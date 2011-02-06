@@ -5,7 +5,7 @@
 #ifndef __BSGUI_CONTROLS_H_INCLUDED__
 #define __BSGUI_CONTROLS_H_INCLUDED__
 
-#include <string>
+#include "config.h"
 #include <vector>
 #include "bsgui/actions.h"
 #include "bsgui/theme.h"
@@ -92,8 +92,8 @@ struct Control
 	virtual bool OnMouseDown(int x, int y, int b);
 	virtual bool OnMouseUp(int x, int y, int b);
 	// keyboard events
-	virtual bool OnKeyDown(int key, unsigned char ascii);
-	virtual bool OnKeyUp(int key, unsigned char ascii);
+	virtual bool OnKeyDown(int key, unsigned ch_t code);
+	virtual bool OnKeyUp(int key, unsigned ch_t code);
 	// focus events
 	virtual void OnFocusEnter() {};
 	virtual void OnFocusExit() {};

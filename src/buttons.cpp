@@ -17,7 +17,7 @@
 namespace BSGUI
 {
 
-Button::Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, char *caption,
+Button::Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const ch_t *caption,
 	Image *bitmap)
 	: Control(parent,t)
 {

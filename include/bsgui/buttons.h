@@ -16,13 +16,13 @@ namespace BSGUI
 
 struct Button : public Control
 {
-	std::string caption;
+	str_t caption;
 	class Image *bitmap;
 	bool autoDeleteBitmap;
 	bool pushed;
 	bool highlighted;
 
-	Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, char *caption, Image *bitmap=NULL);
+	Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const ch_t *caption, Image *bitmap=NULL);
 	virtual ~Button();
 
 	virtual void SetBitmap(Image *newBitmap, bool autoDelete);

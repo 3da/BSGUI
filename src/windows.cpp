@@ -15,7 +15,7 @@
 namespace BSGUI
 {
 
-Window::Window(Screen *screen, Theme &t, char *caption)
+Window::Window(Screen *screen, Theme &t, const ch_t *caption)
 	: Control(screen, t)
 {
 	moving = resizing = resizeable = false;

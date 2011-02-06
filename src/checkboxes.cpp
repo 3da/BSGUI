@@ -11,7 +11,7 @@
 namespace BSGUI
 {
 
-Checkbox::Checkbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2, char *caption)
+Checkbox::Checkbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const ch_t *caption)
 :Control(parent,t)
 {
 	Place(x1, y1, x2, y2);

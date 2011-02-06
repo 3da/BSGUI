@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="bsgui-0.2" />
+		<Option title="bsgui" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin\Debug\bsgui_d" prefix_auto="1" extension_auto="1" />
+				<Option output="bin\bsgui_d" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj\Debug\" />
 				<Option type="3" />
 				<Option compiler="gcc" />
@@ -18,7 +18,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release\bsgui" prefix_auto="1" extension_auto="1" />
+				<Option output="bin\bsgui" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj\Release\" />
 				<Option type="3" />
 				<Option compiler="gcc" />
@@ -31,26 +31,54 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Debug Unicode">
+				<Option output="bin\bsgui_u_d" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug_u\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DUNICODE" />
+				</Compiler>
+			</Target>
+			<Target title="Release Unicode">
+				<Option output="bin\bsgui_u" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release_u\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DUNICODE" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add directory="include" />
-			<Add directory="..\SDL-1.2.14\include" />
-			<Add directory="..\SDL_image-1.2.10\include" />
-			<Add directory="..\SDL-1.2.14\include\SDL" />
+			<Add directory="..\tools\SDL-1.2.14\include" />
+			<Add directory="..\tools\SDL_image-1.2.10\include" />
+			<Add directory="..\tools\SDL-1.2.14\include\SDL" />
 		</Compiler>
 		<Linker>
 			<Add library="SDL" />
-			<Add library="..\SDL_image-1.2.10\lib\SDL_image.lib" />
+			<Add library="..\tools\SDL_image-1.2.10\lib\SDL_image.lib" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
-			<Add directory="..\SDL-1.2.14\lib" />
+			<Add directory="..\tools\SDL-1.2.14\lib" />
 		</Linker>
 		<Unit filename="include\bsgui\actions.h" />
 		<Unit filename="include\bsgui\bmfont.h" />
 		<Unit filename="include\bsgui\bsgui.h" />
 		<Unit filename="include\bsgui\buttons.h" />
 		<Unit filename="include\bsgui\checkboxes.h" />
+		<Unit filename="include\bsgui\config.h" />
 		<Unit filename="include\bsgui\controls.h" />
 		<Unit filename="include\bsgui\draw.h" />
 		<Unit filename="include\bsgui\filebrowser.h" />

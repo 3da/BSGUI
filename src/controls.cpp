@@ -380,12 +380,12 @@ bool Control::OnMouseUp(int x, int y, int b)
 	return false;
 }
 
-bool Control::OnKeyDown(int key, unsigned char ascii)
+bool Control::OnKeyDown(int key, unsigned ch_t ascii)
 {
 	return false;
 }
 
-bool Control::OnKeyUp(int key, unsigned char ascii)
+bool Control::OnKeyUp(int key, unsigned ch_t ascii)
 {
 	return false;
 }

@@ -16,7 +16,7 @@ struct Checkbox : public Control
 {
 
 
-	Checkbox(Control *parent, Theme&, int x1, int y1, int x2, int y2,char *caption);
+	Checkbox(Control *parent, Theme&, int x1, int y1, int x2, int y2, const ch_t *caption);
 	virtual ~Checkbox();
 
 
@@ -27,7 +27,7 @@ struct Checkbox : public Control
 	virtual void OnMouseEnter();
 	virtual void OnMouseExit();
 
-	std::string caption;
+	str_t caption;
 
 	bool checked;
 	bool hover;

@@ -11,7 +11,7 @@
 namespace BSGUI
 {
 
-Label::Label(Control *parent, Theme &t, int x, int y, char *text)
+Label::Label(Control *parent, Theme &t, int x, int y, const ch_t *text)
 	: Control(parent, t)
 {
 	Move(x, y);
@@ -24,7 +24,7 @@ Label::~Label()
 {
 }
 
-void Label::SetText(const char *t)
+void Label::SetText(const ch_t *t)
 {
 	text = t;
 	Resize(theme.StringWidth(t), theme.height);

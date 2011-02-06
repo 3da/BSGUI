@@ -13,21 +13,21 @@ struct Passwordbox : public Control
 	int cursor;
 	int cursorX;
 
-	std::string text;
-	std::string password;
+	str_t text;
+	str_t password;
 
 
 	Passwordbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Passwordbox();
 
-	void SetText(const char *text);
-	const char *GetText();
+	void SetText(const ch_t *text);
+	const ch_t *GetText();
 
 
 	virtual void Render();
 
-	virtual bool OnKeyDown(int key, unsigned char ascii);
-	virtual bool OnKeyUp(int key, unsigned char ascii);
+	virtual bool OnKeyDown(int key, unsigned char code);
+	virtual bool OnKeyUp(int key, unsigned char code);
 
 	protected:
 

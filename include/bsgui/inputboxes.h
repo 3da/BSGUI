@@ -16,20 +16,20 @@ struct Inputbox : public Control
 	int cursor;
 	int cursorX;
 
-	std::string text;
+	str_t text;
 
 
 	Inputbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~Inputbox();
 
-	void SetText(const char *text);
-	const char *GetText();
+	void SetText(const ch_t *text);
+	const ch_t *GetText();
 
 
 	virtual void Render();
 
-	virtual bool OnKeyDown(int key, unsigned char ascii);
-	virtual bool OnKeyUp(int key, unsigned char ascii);
+	virtual bool OnKeyDown(int key, unsigned char code);
+	virtual bool OnKeyUp(int key, unsigned char code);
 
 	protected:
 

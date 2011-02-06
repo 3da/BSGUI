@@ -96,12 +96,12 @@ bool Inputbox::OnKeyUp(int key, unsigned char ascii)
 	return false;
 }
 
-const char *Inputbox::GetText()
+const ch_t *Inputbox::GetText()
 {
 	return text.c_str();
 }
 
-void Inputbox::SetText(const char *t)
+void Inputbox::SetText(const ch_t *t)
 {
 	int     w, h;
 	GetClientSize(w, h);

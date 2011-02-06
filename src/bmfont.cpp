@@ -374,7 +374,7 @@ long BMFont::FindKern(long first, long second, long firstCharIndex)
 }
 
 
-const char * BMFont::GetFontName() const
+const char *BMFont::GetFontName() const
 {
     return mFontData.info.face;
 }
@@ -398,7 +398,7 @@ bool BMFont::HasCharacter(unsigned long character)
 }
 
 
-float BMFont::GetStringWidth(const char *string, float scale, unsigned long substrLength)
+float BMFont::GetStringWidth(const ch_t *string, float scale, unsigned long substrLength)
 {
     const long maxLength = substrLength ? substrLength : 0x7fffffff;
     long a, w = 0, last = -1;
@@ -437,7 +437,7 @@ float BMFont::GetStringWidth(const char *string, float scale, unsigned long subs
 }
 
 
-float BMFont::DrawString(float x, float y, const char *string, unsigned long flags, float scale, unsigned long substrLength)
+float BMFont::DrawString(float x, float y, const ch_t *string, unsigned long flags, float scale, unsigned long substrLength)
 {
     long a, last = -1, lastIdx = -1, maxLength = substrLength ? (long)substrLength : 0x7fffffff;
     Rectangle rect;

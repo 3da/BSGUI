@@ -4,13 +4,13 @@
 namespace BSGUI
 {
 
-Font::StringRowParser::StringRowParser(Font *font, const char *string, float scale, float wrapAreaWidth, unsigned long substrLength)
+Font::StringRowParser::StringRowParser(Font *font, const ch_t *string, float scale, float wrapAreaWidth, unsigned long substrLength)
 {
     Reset(font, string, scale, wrapAreaWidth, substrLength);
 }
 
 
-bool Font::StringRowParser::Reset(Font *font, const char *string, float scale, float wrapAreaWidth, unsigned long substrLength)
+bool Font::StringRowParser::Reset(Font *font, const ch_t *string, float scale, float wrapAreaWidth, unsigned long substrLength)
 {
     if (string == 0 || string[0] == 0 || font == 0)
     {
@@ -29,7 +29,16 @@ bool Font::StringRowParser::Reset(Font *font, const char *string, float scale, f
     mMaxLength = substrLength ? substrLength : 0x7fffffff;
     mWordWrapping = (wrapAreaWidth > 0);
     mSpacing = font->GetCharacterSpacing() * scale;
-    mSpaceWidth = (font->HasCharacter(SPACE) ? font->GetStringWidth(" ", 1) : font->GetFontHeight() / 3) * scale;
+    if (font->HasCharacter(SPACE))
+    {
+#ifdef UNICODE
+    	mSpaceWidth = font->GetStringWidth(L" ", 1);
+#else
+		mSpaceWidth = font->GetStringWidth(" ", 1);
+#endif
+    }
+    else
+    	mSpaceWidth = font->GetFontHeight() / 3 * scale;
     mResultWidth = 0;
     mResultRowCount = 1;
     mTotalChars = 0;
@@ -44,7 +53,7 @@ bool Font::StringRowParser::Reset(Font *font, const char *string, float scale, f
 }
 
 
-bool Font::StringRowParser::GetNextRow(const char *&oRowStart, unsigned long &oRowLength, float *oRowWidth)
+bool Font::StringRowParser::GetNextRow(const ch_t *&oRowStart, unsigned long &oRowLength, float *oRowWidth)
 {
     if (Finished())
     {
@@ -189,7 +198,7 @@ bool Font::StringRowParser::GetNextRow(const char *&oRowStart, unsigned long &oR
 }
 
 
-long Font::GetStringMetrics(float &oWidth, float &oHeight, const char *string,
+long Font::GetStringMetrics(float &oWidth, float &oHeight, const ch_t *string,
                            float scale, float wrapAreaWidth, unsigned long substrLength)
 {
     StringRowParser srp(this, string, scale, wrapAreaWidth, substrLength);
@@ -197,7 +206,7 @@ long Font::GetStringMetrics(float &oWidth, float &oHeight, const char *string,
         return 0;
 
     float resultWidth = 0;
-    const char *rowStart;
+    const ch_t *rowStart;
     unsigned long rowLength;
     float rowWidth;
     while (srp.GetNextRow(rowStart, rowLength, &rowWidth))
@@ -211,7 +220,7 @@ long Font::GetStringMetrics(float &oWidth, float &oHeight, const char *string,
 }
 
 
-long Font::DrawText(float x, float y, const char *text,
+long Font::DrawText(float x, float y, const ch_t *text,
                    unsigned long flags, float scale, float wrapAreaWidth, unsigned long substrLength)
 {
     // align vertically first when needed
@@ -230,7 +239,7 @@ long Font::DrawText(float x, float y, const char *text,
     if (srp.Finished())
         return 0;
 
-    const char *rowStart;
+    const ch_t *rowStart;
     unsigned long rowLength;
     float rowWidth, rowHeight = GetFontHeight(scale);
     while (srp.GetNextRow(rowStart, rowLength, &rowWidth))

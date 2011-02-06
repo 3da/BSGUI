@@ -110,14 +110,14 @@ public:
 	virtual long GetFontHeight();
 	virtual float GetFontHeight(float scale);
 	virtual bool HasCharacter(unsigned long character);
-	virtual float GetStringWidth(const char *string, float scale, unsigned long substrLength = 0);
+	virtual float GetStringWidth(const ch_t *string, float scale, unsigned long substrLength = 0);
 
-	virtual float DrawString(float x, float y, const char *string,
+	virtual float DrawString(float x, float y, const ch_t *string,
 							unsigned long flags = IF_ALIGN_TOP_LEFT, float scale = 1, unsigned long substrLength = 0);
 
 	// Local:
 
-	const char * GetFontName() const;
+	const char *GetFontName() const;
 
 private:
 

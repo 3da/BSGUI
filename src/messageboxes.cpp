@@ -20,11 +20,15 @@ static void CloseMessageBox(Control *sender)
 	delete sender->parent;
 }
 
-void MessageBox(Theme &t, char *msg, char *caption, bool exclusive)
+void MessageBox(Theme &t, ch_t *msg, ch_t *caption, bool exclusive)
 {
 	Window *w = new Window(Screen::screen, t, caption);
 	Label *l = new Label(w, t, 20, 20, msg);
+#ifdef UNICODE
+	Button *b = new Button(w, t, 0, 0, 100, 25, L"Ok");
+#else
 	Button *b = new Button(w, t, 0, 0, 100, 25, "Ok");
+#endif
 	w->Resize((l->x2 - l->x1) + 40, 80);
 	l->Center();
 	b->Move(0, l->y2 + 15);
