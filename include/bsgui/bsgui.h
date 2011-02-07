@@ -43,6 +43,7 @@ typedef unsigned int	uint;
 #include <bsgui/passwordbox.h>
 #include <bsgui/bmfont.h>
 #include <bsgui/imageopengl.h>
+#include <bsgui/picture.h>
 
 namespace BSGUI
 {

@@ -92,6 +92,7 @@
 		<Unit filename="include\bsgui\messageboxes.h" />
 		<Unit filename="include\bsgui\modelviews.h" />
 		<Unit filename="include\bsgui\passwordbox.h" />
+		<Unit filename="include\bsgui\picture.h" />
 		<Unit filename="include\bsgui\progressbars.h" />
 		<Unit filename="include\bsgui\renderers.h" />
 		<Unit filename="include\bsgui\screen.h" />
@@ -133,6 +134,7 @@
 		<Unit filename="src\messageboxes.cpp" />
 		<Unit filename="src\modelviews.cpp" />
 		<Unit filename="src\passwordbox.cpp" />
+		<Unit filename="src\picture.cpp" />
 		<Unit filename="src\progressbars.cpp" />
 		<Unit filename="src\renderers.cpp" />
 		<Unit filename="src\screen.cpp" />
