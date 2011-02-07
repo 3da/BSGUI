@@ -15,14 +15,14 @@ Theme::Theme()
 	//padBottom=0;
 	height=15;
 	scrollSize=10;
-	colorFrameNormal=Color(0.45, 0.45, 0.45, 0.5);
-	colorTextFocused=Color(0.75, 0.85, 0.60, 0.7);
-	colorTextUnfocused=Color(0.75, 0.75, 0.75, 0.5);
-	colorFrameFocused=Color(0.6, 0.6, 0.6, 0.5);
-	colorFrameHovered=Color(0.3, 0.3, 0.3, 0.5);
-	colorLines=Color(1.0,1.0,1.0, 0.5);
-	colorTitle=Color(0.6,0.5,0.6, 0.7);
-	colorTitleText=Color(0.9,0.9,0.9, 0.5);
+	colorFrameNormal.Set(0.45, 0.45, 0.45, 0.5);
+	colorTextFocused.Set(0.75, 0.85, 0.60, 0.7);
+	colorTextUnfocused.Set(0.75, 0.75, 0.75, 0.5);
+	colorFrameFocused.Set(0.6, 0.6, 0.6, 0.5);
+	colorFrameHovered.Set(0.3, 0.3, 0.3, 0.5);
+	colorLines.Set(1.0,1.0,1.0, 0.5);
+	colorTitle.Set(0.6,0.5,0.6, 0.7);
+	colorTitleText.Set(0.9,0.9,0.9, 0.5);
 }
 
 
