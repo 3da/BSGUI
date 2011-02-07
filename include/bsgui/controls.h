@@ -40,11 +40,11 @@ struct Control
 
 	Theme theme;
 
-	struct Action *clicked;
-	struct Action *modified;
-	struct Action *selected;
-	struct Action *moved;
-	struct Action *resized;
+	CallbackActionFunc clicked;
+	CallbackActionFunc modified;
+	CallbackActionFunc selected;
+	CallbackActionFunc moved;
+	CallbackActionFunc resized;
 
 	struct PopupMenu *popupMenu;
 
@@ -108,22 +108,23 @@ struct Control
 	static Control *trackControl;
 	static Control *keyboardFocusControl;
 
-	inline void FreeAction(Action *a)
+/*	inline void FreeAction(Action *a)
 	{
 		if (a && a->autoDelete)
 			delete a;
 	}
+*/
 
-	inline void RunAction(Action *a)
+	inline void RunAction(CallbackActionFunc &a)
 	{
 		if (a)
-			a->Run(this);
+			(*a)(this);
 	}
 
-	inline static void RunActionOf(Control *c, Action *a)
+	inline static void RunActionOf(Control *c, CallbackActionFunc &a)
 	{
 		if (a)
-			a->Run(c);
+			(*a)(c);
 	}
 
 

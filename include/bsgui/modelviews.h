@@ -12,7 +12,7 @@ namespace BSGUI
 
 struct ModelView : public Renderer
 {
-	Action	*renderView;
+	CallbackActionFunc renderView;
 
 	ModelView(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~ModelView();

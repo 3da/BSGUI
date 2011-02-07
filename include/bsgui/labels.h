@@ -20,6 +20,7 @@ struct Label : public Control
 	virtual ~Label();
 
 	void SetText(const ch_t *text);
+	void SetTheme(Theme &t);
 
 	virtual void Render();
 };

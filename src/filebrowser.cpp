@@ -80,7 +80,7 @@ FileBrowser::FileBrowser(Theme &t, Screen *screen, const ch_t *caption, const ch
 	l = new Label(this, t, 5, 5, "Files and directories:");
 #endif
 	files = new Listbox(this, t, 5, l->y2 + 5, w-10, h-40);
-	files->modified = new CallbackAction(SelectFileBrowserAction);
+	files->modified = SelectFileBrowserAction;
 #ifdef UNICODE
 	l = new Label(this, t, 5, files->y2+9, L"Filename:");
 #else
@@ -92,13 +92,13 @@ FileBrowser::FileBrowser(Theme &t, Screen *screen, const ch_t *caption, const ch
 #else
 	b = new Button(this, t, w-125, files->y2 + 5, w-70, files->y2 + 30, "Ok");
 #endif
-	b->clicked = new CallbackAction(CloseFileBrowserAction);
+	b->clicked = CloseFileBrowserAction;
 #ifdef UNICODE
 	b = new Button(this, t, w-65, files->y2 + 5, w-10, files->y2+30, L"Cancel");
 #else
 	b = new Button(this, t, w-65, files->y2 + 5, w-10, files->y2+30, "Cancel");
 #endif
-	b->clicked = new CallbackAction(CancelFileBrowserAction);
+	b->clicked = CancelFileBrowserAction;
 
 	ReloadFiles();
 

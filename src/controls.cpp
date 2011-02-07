@@ -50,12 +50,6 @@ Control::~Control()
 		}
 		parent->RemoveChild(this);
 	}
-
-	FreeAction(clicked);
-	FreeAction(modified);
-	FreeAction(selected);
-	FreeAction(moved);
-	FreeAction(resized);
 }
 
 
@@ -307,6 +301,13 @@ void Control::GetBoundsChildren(int &x1, int &y1, int &x2, int &y2)
 void Control::SetTheme(Theme &t)
 {
 	theme = t;
+	if (childs.empty())
+		return;
+	std::vector<Control*>::iterator i;
+	for (i = childs.begin(); i != childs.end(); i++)
+	{
+		(*i)->SetTheme(t);
+	}
 }
 
 void Control::GetClientSize(int &w, int &h)

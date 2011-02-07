@@ -99,7 +99,6 @@
 		<Unit filename="include\bsgui\sliders.h" />
 		<Unit filename="include\bsgui\theme.h" />
 		<Unit filename="include\bsgui\windows.h" />
-		<Unit filename="src\actions.cpp" />
 		<Unit filename="src\bitmaps\new.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -125,6 +124,7 @@
 		<Unit filename="src\draw.cpp" />
 		<Unit filename="src\filebrowser.cpp" />
 		<Unit filename="src\font.cpp" />
+		<Unit filename="src\image.cpp" />
 		<Unit filename="src\imageopengl.cpp" />
 		<Unit filename="src\inputboxes.cpp" />
 		<Unit filename="src\labels.cpp" />

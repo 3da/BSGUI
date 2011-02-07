@@ -34,7 +34,7 @@ void MessageBox(Theme &t, const ch_t *msg, const ch_t *caption, bool exclusive)
 	b->Move(0, l->y2 + 15);
 	b->Center(true, false);
 	w->Resize(w->x2 - w->x1 + 1, w->y2 - w->y1 + 16 + b->y2 - b->y1);
-	b->clicked = new CallbackAction(CloseMessageBox);
+	b->clicked = CloseMessageBox;
 	if (exclusive)
 		w->MakeExclusive();
 	w->Center();

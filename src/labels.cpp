@@ -31,6 +31,11 @@ void Label::SetText(const ch_t *t)
 
 }
 
+void Label::SetTheme(Theme &t)
+{
+	Control::SetTheme(t);
+	Resize(theme.StringWidth(text.c_str()), theme.height);
+}
 
 void Label::Render()
 {

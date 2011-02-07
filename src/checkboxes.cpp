@@ -72,8 +72,7 @@ bool Checkbox::OnMouseUp(int x, int y, int b)
 		if (hover)
 		{
 			checked=!checked;
-			if (modified)
-				modified->Run(this);
+			RunAction(modified);
  		}
 	}
 	pushed = false;

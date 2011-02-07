@@ -20,7 +20,7 @@ ModelView::ModelView(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
 
 ModelView::~ModelView()
 {
-	FreeAction(renderView);
+
 }
 
 void ModelView::OffscreenRender()

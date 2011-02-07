@@ -8,7 +8,7 @@
 namespace BSGUI
 {
 
-struct Action
+/*struct Action
 {
 	bool autoDelete;
 
@@ -16,18 +16,18 @@ struct Action
 	virtual ~Action();
 
 	virtual void Run(struct Control *sender){}
-};
+};*/
 
 typedef void (*CallbackActionFunc)(struct Control *sender);
 
-struct CallbackAction : public Action
+/*struct CallbackAction : public Action
 {
 	CallbackActionFunc      func;
 
 	CallbackAction(CallbackActionFunc cbFunc);
 
 	virtual void Run(struct Control *sender);
-};
+};*/
 
 }
 

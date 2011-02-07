@@ -24,7 +24,7 @@ ListboxItem::ListboxItem(Control *parent, Theme &t)
 
 ListboxItem::~ListboxItem()
 {
-	FreeAction(selected);
+
 }
 
 
