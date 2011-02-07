@@ -49,7 +49,7 @@ public:
 		FF_DEFAULT_FLAGS = FF_HANDLE_BACKSLASH_ESCAPES
 	};
 
-	Font() : mLoaded(false), mDrawMode(IDM_NORMAL), mFlags(FF_DEFAULT_FLAGS) {}
+	Font() : mLoaded(false), mFlags(FF_DEFAULT_FLAGS) {}
 	virtual ~Font() {}
 
 	//! Sets new flags.
@@ -100,13 +100,13 @@ public:
 								  float scale = 1, float wrapAreaWidth = 0, unsigned long substrLength = 0);
 
 	//! Sets draw mode for glyphs. \sa IMAGE_DRAW_MODE
-	void SetDrawMode(IMAGE_DRAW_MODE drawMode) {
+	/*void SetDrawMode(IMAGE_DRAW_MODE drawMode) {
 		mDrawMode = drawMode;
 	}
 	//! Returns draw mode.
 	IMAGE_DRAW_MODE GetDrawMode() const {
 		return mDrawMode;
-	}
+	}*/
 
 	//! Draws a string.
 	/*!
@@ -141,7 +141,6 @@ public:
 protected:
 
 	bool mLoaded;
-	IMAGE_DRAW_MODE mDrawMode;
 	unsigned long mFlags;
 
 }; // class Font

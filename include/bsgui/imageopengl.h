@@ -29,43 +29,14 @@ public:
 	 * \param uv top-left and bottom-right U,V coordinates in
 	 *           texture (4 floats).
 	 */
-	ImageOpenGL(unsigned long width, unsigned long height, unsigned long flags, unsigned long glId, const float *uv);
+	ImageOpenGL(unsigned long width, unsigned long height/*, unsigned long flags*/, unsigned long glId, const float *uv);
 	//! Destructor deletes the texture.
 	virtual ~ImageOpenGL();
 
-	// From Image:
-
-	virtual void SetColor(const Color &color) {
-		mColor = color;
-	}
-
-	virtual void SetTargetSize(float width, float height) {
-		mTargetWidth = width;
-		mTargetHeight = height;
-		mUsingExplicitTargetSize = true;
-	}
-	virtual void ResetTargetSize() {
-		mTargetWidth = (float)mWidth;
-		mTargetHeight = (float)mHeight;
-		mUsingExplicitTargetSize = false;
-	}
-
-	virtual void SetAngle(float angle) {
-		mAngle = angle;
-	}
-
-	virtual void SetScale(float scale) {
-		mScaleX = mScaleY = scale;
-	}
-	virtual void SetScale(float scaleX, float scaleY) {
-		mScaleX = scaleX;
-		mScaleY = scaleY;
-	}
-
-	virtual void Draw(float x, float y) {
-		Draw(mDrawMode, mFlags, x, y);
-	}
-	virtual void Draw(IMAGE_DRAW_MODE drawMode, unsigned long flags, float x, float y, const Rectangle *sourceRect = 0);
+	virtual void Draw(unsigned long flags,
+					float x, float y,
+					float rotation, float scaleX, float scaleY,
+					const Rectangle *sourceRect = 0);
 
 	// ImageOpenGL additions:
 
@@ -76,8 +47,7 @@ public:
 		return mUV;
 	}
 
-	static Image * LoadImage(const char *fileName,
-									 unsigned long flags = 0xffffffff);
+	static Image * LoadImage(const char *fileName);
 
 	// GraphicsSDLOpenGL additions:
 
@@ -90,8 +60,7 @@ public:
 	 *              \sa turska::IMAGE_FLAG
 	 * \return image object if successful, or 0 if unsuccessful.
 	 */
-	static Image * LoadImage(SDL_RWops *source, bool deleteSource,
-									 unsigned long flags = 0xffffffff);
+	static Image * LoadImage(SDL_RWops *source, bool deleteSource);
 
 	//! Loads a SDL_Surface from given file name.
 	/*!
@@ -117,8 +86,7 @@ public:
 	 * \param sourceRect optional source rectangle to crop from the surface,
 	 *                   or 0 to use the whole surface.
 	 */
-	static Image * CreateImage(SDL_Surface *surface, unsigned long flags,
-									   PixelRectangle *sourceRect = 0);
+	static Image * CreateImage(SDL_Surface *surface, PixelRectangle *sourceRect = 0);
 
 	//! Creates an OpenGL texture from given SDL_Surface.
 	/*!
@@ -133,8 +101,7 @@ public:
 	 * \return true if successful, or false if unsuccessful.
 	 */
 	static bool CreateTexture(unsigned long &oTexture, float *oUV,
-									  SDL_Surface *surface, unsigned long flags,
-									  PixelRectangle *sourceRect = 0);
+									  SDL_Surface *surface, PixelRectangle *sourceRect = 0);
 
 
 protected:
@@ -143,12 +110,8 @@ protected:
 	float mUV[4];
 	const float mHalfWidth;
 	const float mHalfHeight;
-	Color mColor;
 	float mTargetWidth;
 	float mTargetHeight;
-	float mAngle;
-	float mScaleX, mScaleY;
-	bool mUsingExplicitTargetSize;
 }; // ImageOpenGL
 
 

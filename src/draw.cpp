@@ -74,7 +74,7 @@ bool Draw::SetCursorImage(Image *image)
 void Draw::DrawCursor(int x, int y)
 {
 	Color(1,1,1,1).Use();
-	cursorImage->Draw(IDM_NORMAL, cursorFlags, x, y);
+	cursorImage->Draw(cursorFlags, x, y, 0, 1, 1);
 }
 
 void Draw::SetCursorAlign(unsigned long flags)

@@ -459,15 +459,15 @@ float BMFont::DrawString(float x, float y, const ch_t *string, unsigned long fla
         x = (float)((long)x);
         y = (float)((long)y);
     }
-    for (a = 0; a < mFontData.common.pages; ++a)
+    /*for (a = 0; a < mFontData.common.pages; ++a)
     {
         assert(mFontData.pages[a].fontImage);
         mFontData.pages[a].fontImage->SetScale(scale);
-    }
+    }*/
 
-    flags = IF_ALIGN_TOP_LEFT | IF_COLOR | IF_ALPHA;
-    if (scale != (float)1)
-        flags |= IF_TRANSFORM | IF_SCALE;
+    flags = IF_ALIGN_TOP_LEFT/* | IF_COLOR | IF_ALPHA*/;
+    //if (scale != (float)1)
+    //    flags |= IF_TRANSFORM | IF_SCALE;
 
     bool escape = false;
 
@@ -519,7 +519,7 @@ float BMFont::DrawString(float x, float y, const ch_t *string, unsigned long fla
         stringWidth += gw;
         xoff += gw;
         long page = mFontData.chars[id].page;
-        mFontData.pages[page].fontImage->Draw(mDrawMode, flags, x, y, &rect);
+        mFontData.pages[page].fontImage->Draw(flags, x, y, 0, scale, scale, &rect);
 
         last = ch;
         lastIdx = id;
