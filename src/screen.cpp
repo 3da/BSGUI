@@ -41,4 +41,10 @@ Screen *Screen::Activate()
 	return prevScreen;
 }
 
+bool Screen::OnMouseDown(int x, int y, int b)
+{
+	Control::OnMouseDown(x, y, b);
+	return false;
+}
+
 }

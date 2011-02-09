@@ -34,7 +34,7 @@ struct ClipArea
 
 static int	orthoEnableCount = 0;
 
-static Image *cursorImage;
+static Image *cursorImage = 0;
 static ClipArea	*carea = 0;
 static unsigned long cursorFlags = IF_ALIGN_TOP_LEFT;
 
@@ -73,6 +73,8 @@ bool Draw::SetCursorImage(Image *image)
 
 void Draw::DrawCursor(int x, int y)
 {
+	if (!cursorImage)
+		return;
 	Color(1,1,1,1).Use();
 	cursorImage->Draw(cursorFlags, x, y, 0, 1, 1);
 }

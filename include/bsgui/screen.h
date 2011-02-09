@@ -21,8 +21,11 @@ struct Screen : public Control
 	virtual ~Screen();
 
 	virtual Screen *Activate();
+	virtual bool OnMouseDown(int x, int y, int b);
 
 	static Screen *screen;
+
+
 };
 
 }
