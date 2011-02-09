@@ -38,33 +38,6 @@ static Image *cursorImage = 0;
 static ClipArea	*carea = 0;
 static unsigned long cursorFlags = IF_ALIGN_TOP_LEFT;
 
-void Draw::EnableOrtho()
-{
-	orthoEnableCount++;
-	if (orthoEnableCount != 1)
-		return;
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-
-  	glLoadIdentity();
-	glOrtho(0, Screen::screen->width, Screen::screen->height, 0, -1, 1);
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
-	glLoadIdentity();
-}
-
-void Draw::DisableOrtho()
-{
-	orthoEnableCount--;
-	if (orthoEnableCount != 0)
-		return;
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
- 	glMatrixMode(GL_MODELVIEW);
- 	glPopMatrix();
-}
-
-
 bool Draw::SetCursorImage(Image *image)
 {
 	cursorImage = image;

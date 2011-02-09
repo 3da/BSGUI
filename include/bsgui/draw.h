@@ -15,13 +15,6 @@ class Image;
 class Font;
 namespace Draw
 {
-
-
-	void EnableOrtho();
-	void DisableOrtho();
-
-
-
 	bool SetCursorImage(Image *image);
 	void DrawCursor(int x, int y);
 	void SetCursorAlign(unsigned long flags);

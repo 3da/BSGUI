@@ -70,24 +70,7 @@ static void EndRender()
 
 void Render()
 {
-	/*bool	scissorEnabled = glIsEnabled(GL_SCISSOR_TEST) == GL_TRUE;
-	bool	depthEnabled = glIsEnabled(GL_DEPTH_TEST) == GL_TRUE;
-	bool	cullingEnabled = glIsEnabled(GL_CULL_FACE) == GL_TRUE;
-	bool	textureEnabled = glIsEnabled(GL_TEXTURE_2D) == GL_TRUE;
-	bool	lightingEnabled = glIsEnabled(GL_LIGHTING) == GL_TRUE;
-	if (!scissorEnabled)
-		glEnable(GL_SCISSOR_TEST);
-	if (depthEnabled)
-		glDisable(GL_DEPTH_TEST);
-	if (cullingEnabled)
-		glDisable(GL_CULL_FACE);
-	if (!textureEnabled)
-		glEnable(GL_TEXTURE_2D);
-	if (lightingEnabled)
-		glDisable(GL_LIGHTING);*/
 	BeginRender();
-	//glLoadIdentity();
-	//EnableOrtho();
 
 	Screen::screen->Render();
 	Draw::ResetClipping();
@@ -98,18 +81,7 @@ void Render()
 	Screen::screen->mouseY = y;
 	Draw::DrawCursor(x - 1, y - 1);
 
-	//DisableOrtho();
 	EndRender();
-	/*if (lightingEnabled)
-		glEnable(GL_LIGHTING);
-	if (!textureEnabled)
-		glDisable(GL_TEXTURE_2D);
-	if (cullingEnabled)
-		glEnable(GL_CULL_FACE);
-	if (depthEnabled)
-		glEnable(GL_DEPTH_TEST);
-	if (!scissorEnabled)
-		glDisable(GL_SCISSOR_TEST);*/
 }
 
 void Tick()
