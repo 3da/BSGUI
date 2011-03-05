@@ -47,7 +47,7 @@ void ListboxItem::Render()
 		theme.colorTextFocused.Use();
 	else
 		theme.colorTextUnfocused.Use();
-	theme.DrawString(x1 + 8, (y2-y1 + 1)/2 + y1, text.c_str(), false);
+	theme.DrawString(x1 + 8, (y2-y1 + 1)/2 + y1, text, false);
 }
 
 void ListboxItem::Focus()

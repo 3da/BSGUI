@@ -24,38 +24,35 @@ std::string Narrow( const std::wstring& str )
 	return stm.str() ;
 }
 
-
-MyString::MyString(const char *text)
-{
-	Set(text);
-}
-
-MyString::MyString(const wchar_t* text)
-{
-	Set(text);
-}
-
 void MyString::Set(const std::string &text)
 {
+	ascii = text;
 	assign(Widen(text));
+	actual = true;
 }
 
 void MyString::Set(const std::wstring &text)
 {
 	assign(text);
+	actual = false;
 }
+
+/*void MyString::Set(const MyString &text)
+{
+	assign(text.GetUnicode());
+	actual = false;
+}*/
+
 
 const char *MyString::GetAscii()
 {
-	ascii = Narrow(*this);
+	if (!actual)
+	{
+		ascii = Narrow(*this);
+		actual = true;
+	}
 	return ascii.c_str();
 }
-
-const wchar_t *MyString::GetUnicode() const
-{
-	return c_str();
-}
-
 
 
 

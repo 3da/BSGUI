@@ -16,7 +16,7 @@ Label::Label(Control *parent, Theme &t, int x, int y, const MyString text)
 {
 	Move(x, y);
 	this->text = text;
-	Resize(theme.StringWidth(text.c_str()), theme.height);
+	Resize(theme.StringWidth(text), theme.height);
 
 }
 
@@ -27,14 +27,14 @@ Label::~Label()
 void Label::SetText(const MyString t)
 {
 	text = t;
-	Resize(theme.StringWidth(t.c_str()), theme.height);
+	Resize(theme.StringWidth(t), theme.height);
 
 }
 
 void Label::SetTheme(Theme &t)
 {
 	Control::SetTheme(t);
-	Resize(theme.StringWidth(text.c_str()), theme.height);
+	Resize(theme.StringWidth(text), theme.height);
 }
 
 void Label::Render()
@@ -46,7 +46,7 @@ void Label::Render()
 		theme.colorTextFocused.Use();
 	else
 		theme.colorTextUnfocused.Use();
-	theme.DrawString(x1, y1+theme.height/2, text.c_str(), false);
+	theme.DrawString(x1, y1+theme.height/2, text, false);
 }
 
 }

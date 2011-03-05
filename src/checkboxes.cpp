@@ -48,7 +48,7 @@ void Checkbox::Render()
 		theme.colorTextFocused.Use();
 	else
 		theme.colorTextUnfocused.Use();
-	theme.DrawString(x1 + 16, (y2-y1)/2 + y1, caption.c_str(), false);
+	theme.DrawString(x1 + 16, (y2-y1)/2 + y1, caption, false);
 }
 
 

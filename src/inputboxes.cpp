@@ -39,7 +39,7 @@ void Inputbox::Render()
 		theme.colorTextFocused.Use();
 	else
 		theme.colorTextUnfocused.Use();
-	theme.DrawString(x1 + 5 - tScroll, y1 + (y2 - y1)/2, text.c_str(), false);
+	theme.DrawString(x1 + 5 - tScroll, y1 + (y2 - y1)/2, text, false);
 
 	theme.colorLines.Use();
 	if (HasKeyboardFocus())
@@ -67,7 +67,7 @@ bool Inputbox::OnKeyDown(int key, unsigned wchar_t ascii)
 				return true;
 			text.erase(text.length()-1);
 			--cursor;
-			cursorX = theme.StringWidth(text.c_str());
+			cursorX = theme.StringWidth(text);
 			if (cursorX - tScroll < 0)
 			{
 				tScroll = cursorX - (w/2);
@@ -88,7 +88,7 @@ bool Inputbox::OnKeyDown(int key, unsigned wchar_t ascii)
 			        break;
 			text.push_back(ascii);
 			cursor++;
-			cursorX = theme.StringWidth(text.c_str());
+			cursorX = theme.StringWidth(text);
 			if (cursorX - tScroll > w - 10)
 				tScroll = cursorX - w + (w/2);
 			return true;
@@ -108,7 +108,7 @@ void Inputbox::SetText(const MyString t)
 	GetClientSize(w, h);
 	text = t;
 	cursor = 0;
-	cursorX = theme.StringWidth(text.c_str());
+	cursorX = theme.StringWidth(text);
 	if (cursorX - tScroll < 0)
 	{
 		tScroll = cursorX - (w/2);

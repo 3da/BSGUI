@@ -74,7 +74,7 @@ void Button::Render()
 		theme.colorTextFocused.Use();
 	else
 		theme.colorTextUnfocused.Use();
-	theme.DrawString(textX, textY, caption.c_str(), true);
+	theme.DrawString(textX, textY, caption, true);
 	//Draw::DrawString(x1 + x2, (y2-y1 + 1)/2 + y1 -
 	//	Draw::StringHeight()/2, caption.c_str());
 	//if (bitmap)

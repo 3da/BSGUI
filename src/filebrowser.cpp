@@ -90,7 +90,7 @@ const MyString FileBrowser::GetFilename()
 	MyString fname;
 	fname = path;
 	fname+=filename->text;
-	return fname.c_str();
+	return fname;
 }
 
 void FileBrowser::ReloadFiles()

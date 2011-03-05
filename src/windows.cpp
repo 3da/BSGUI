@@ -53,7 +53,7 @@ void Window::Render()
 	theme.DrawRect(x1, y1, x2, y2);
 
 	theme.colorTitleText.Use();
-	theme.DrawString((x2-x1)/2 + x1, y1 + theme.height/2, caption.c_str(), true);
+	theme.DrawString((x2-x1)/2 + x1, y1 + theme.height/2, caption, true);
 
 	Control::Render();
 

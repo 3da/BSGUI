@@ -51,6 +51,7 @@ static void BeginRender()
     //glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glColor4f(1, 1, 1, 1);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 
@@ -70,8 +71,8 @@ static void EndRender()
 
 void Render()
 {
-	BeginRender();
 
+	BeginRender();
 	Screen::screen->Render();
 	Draw::ResetClipping();
 

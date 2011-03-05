@@ -37,7 +37,7 @@ void Passwordbox::Render()
 		theme.colorTextFocused.Use();
 	else
 		theme.colorTextUnfocused.Use();
-	theme.DrawString(x1 + 5 - tScroll, y1 + (y2 - y1)/2, password.c_str(), false);
+	theme.DrawString(x1 + 5 - tScroll, y1 + (y2 - y1)/2, password, false);
 
 	theme.colorLines.Use();
 	if (HasKeyboardFocus())
@@ -62,7 +62,7 @@ bool Passwordbox::OnKeyDown(int key, unsigned wchar_t ascii)
 			text.erase(text.length()-1);
 			password.erase(password.length()-1);
 			--cursor;
-			cursorX = theme.StringWidth(password.c_str());
+			cursorX = theme.StringWidth(password);
 			if (cursorX - tScroll < 0)
 			{
 				tScroll = cursorX - (w/2);
@@ -84,7 +84,7 @@ bool Passwordbox::OnKeyDown(int key, unsigned wchar_t ascii)
 			text.push_back(ascii);
 			password.push_back('*');
 			++cursor;
-			cursorX = theme.StringWidth(password.c_str());
+			cursorX = theme.StringWidth(password);
 			if (cursorX - tScroll > w - 10)
 				tScroll = cursorX - w + (w/2);
 			return true;
@@ -111,7 +111,7 @@ void Passwordbox::SetText(const MyString t)
 	password.clear();
 	password.insert(0, text.length(), '*');
 	cursor = 0;
-	cursorX = theme.StringWidth(password.c_str());
+	cursorX = theme.StringWidth(password);
 	if (cursorX - tScroll < 0)
 	{
 		tScroll = cursorX - (w/2);
