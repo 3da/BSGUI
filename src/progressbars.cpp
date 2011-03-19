@@ -39,9 +39,9 @@ void ProgressBar::Render()
 	if (max == 0.0f || value == 0.0f)
 		return;
 
-	w = (int)((float)(x2-x1-2)*value/max);
+	w = (int)((float)(x2-x1+1)*value/max);
 
-	theme.FillRect(x1 + 1, y1 + 2, x1 + w, y2 - 1);
+	theme.FillRect(x1+1, y1, x1 + w + 1, y2 );
 }
 
 }

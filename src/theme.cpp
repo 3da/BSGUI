@@ -43,12 +43,6 @@ int Theme::StringWidth(const MyString str)
 
 void Theme::DrawRect(int x1, int y1, int x2, int y2)
 {
-	//if (focused)
-	//	colorFrameFocused.Use();
-	//colorLines.Use();
-	//glBindTexture(GL_TEXTURE_2D, 0);
-	y1++;
-	y2++;
 	glBegin(GL_LINE_STRIP);
 	glVertex2f(x1, y1);
 	glVertex2f(x2, y1);
@@ -56,20 +50,10 @@ void Theme::DrawRect(int x1, int y1, int x2, int y2)
 	glVertex2f(x1, y2);
 	glVertex2f(x1, y1);
 	glEnd();
-	glBegin(GL_POINTS);
-	glVertex2f(x1, y1);
-	glVertex2f(x2, y1);
-	glVertex2f(x2, y2);
-	glVertex2f(x1, y2);
-	glEnd();
 }
 
 void Theme::FillRect(int x1, int y1, int x2, int y2)
 {
-	//colorFrameNormal.Use();
-	//glBindTexture(GL_TEXTURE_2D, 0);
-	x1++;
-	x2++;
 	glBegin(GL_QUADS);
 	glVertex2f(x1, y1);
 	glVertex2f(x2, y1);
@@ -81,7 +65,6 @@ void Theme::FillRect(int x1, int y1, int x2, int y2)
 
 void Theme::DrawLine(int x1, int y1, int x2, int y2)
 {
-	//glBindTexture(GL_TEXTURE_2D, 0);
 	glBegin(GL_LINES);
 	glVertex2f(x1, y1);
 	glVertex2f(x2, y2);
@@ -90,12 +73,9 @@ void Theme::DrawLine(int x1, int y1, int x2, int y2)
 
 void Theme::DrawFrame(int x1, int y1, int x2, int y2)
 {
-	//glBindTexture(GL_TEXTURE_2D, 0);
-	//colorFrameNormal.Use();
 	FillRect(x1, y1, x2, y2);
 	colorLines.Use();
 	DrawRect(x1, y1, x2, y2);
-
 }
 
 

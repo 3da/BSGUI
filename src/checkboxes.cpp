@@ -38,7 +38,7 @@ void Checkbox::Render()
 	{
 		theme.colorLines.Use();
 		theme.DrawLine(x1, y1 + 4, x1 + 12, y2 - 4);
-		theme.DrawLine(x1 + 13, y1 + 4, x1, y2 - 3);
+		theme.DrawLine(x1 + 12, y1 + 4, x1, y2 - 3);
 	}
 
 	//theme.colorLines.Use();
