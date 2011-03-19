@@ -11,36 +11,30 @@ class MyString: public std::wstring
 public:
 	MyString()
 	{
-		actual = true;
 	}
 
 	MyString(const std::string &text)
 	{
-		actual = false;
 		Set(text);
 	}
 
 	MyString(const std::wstring &text)
 	{
-		actual = false;
 		Set(text);
 	}
 
 	MyString(const MyString &text)
 	{
-		actual = false;
 		Set(text);
 	}
 
 	MyString(const char *text)
 	{
-		actual = false;
 		Set(text);
 	}
 
 	MyString(const wchar_t *text)
 	{
-		actual = false;
 		Set(text);
 	}
 
@@ -58,7 +52,6 @@ public:
 
 protected:
 	std::string ascii;
-	bool actual;
 
 };
 

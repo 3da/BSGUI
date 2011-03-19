@@ -28,34 +28,18 @@ void MyString::Set(const std::string &text)
 {
 	ascii = text;
 	assign(Widen(text));
-	actual = true;
 }
 
 void MyString::Set(const std::wstring &text)
 {
 	assign(text);
-	actual = false;
 }
-
-/*void MyString::Set(const MyString &text)
-{
-	assign(text.GetUnicode());
-	actual = false;
-}*/
-
 
 const char *MyString::GetAscii()
 {
-	if (!actual)
-	{
-		ascii = Narrow(*this);
-		actual = true;
-	}
+    ascii = Narrow(*this);
 	return ascii.c_str();
 }
-
-
-
 
 
 
