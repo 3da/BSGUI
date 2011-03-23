@@ -8,7 +8,7 @@
 #include "bsgui/screen.h"
 #include "bsgui/draw.h"
 
-#include "bsgui/image.h"
+#include <BSGFX.h>
 
 #include <GL\gl.h>
 

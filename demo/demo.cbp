@@ -15,7 +15,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="..\bin\libbsgui_d.dll.a" />
+					<Add library="BSGUI_d" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -28,7 +28,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="..\bin\libbsgui.dll.a" />
+					<Add library="BSGUI" />
 				</Linker>
 			</Target>
 		</Build>
@@ -40,16 +40,19 @@
 			<Add directory="..\tools\SDL_image-1.2.10\include" />
 			<Add directory="..\tools\SDL-1.2.14\include\SDL" />
 			<Add directory="..\tools\SDL_image-1.2.10\lib" />
+			<Add directory="..\tools\BSGFX\include" />
 		</Compiler>
 		<Linker>
 			<Add library="mingw32" />
 			<Add library="SDLmain" />
-			<Add library="SDL_image" />
 			<Add library="SDL" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
+			<Add library="BSGFX" />
 			<Add directory="..\tools\SDL-1.2.14\lib" />
 			<Add directory="..\tools\SDL_image-1.2.10\lib" />
+			<Add directory="..\tools\BSGFX\bin" />
+			<Add directory="..\bin" />
 		</Linker>
 		<Unit filename="demo.cpp" />
 		<Extensions>

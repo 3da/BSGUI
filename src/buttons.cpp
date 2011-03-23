@@ -7,12 +7,9 @@
 #include "bsgui/actions.h"
 
 #include "bsgui/buttons.h"
-#include "bsgui/image.h"
+#include <Texture.h>
 #include "bsgui/draw.h"
 
-#include <SDL/SDL.h>
-#include <GL/GL.h>
-#include <GL/GLU.h>
 
 namespace BSGUI
 {

@@ -9,13 +9,13 @@
 #define GL_TEXTURE_RECTANGLE_ARB	0x84F5
 #endif
 
+#include <BSGFX.h>
+
 namespace BSGUI
 {
-class Image;
-class Font;
 namespace Draw
 {
-	bool SetCursorImage(Image *image);
+	bool SetCursorImage(BSGFX::Texture *image);
 	void DrawCursor(int x, int y);
 	void SetCursorAlign(unsigned long flags);
 

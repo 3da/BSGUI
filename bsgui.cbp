@@ -36,29 +36,24 @@
 			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 			<Add directory="include" />
-			<Add directory="tools\SDL-1.2.14\include" />
-			<Add directory="tools\SDL_image-1.2.10\include" />
+			<Add directory="tools\BSGFX\include" />
 			<Add directory="tools\SDL-1.2.14\include\SDL" />
 		</Compiler>
 		<Linker>
 			<Add library="SDL" />
-			<Add library="SDL_image" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
+			<Add library="BSGFX" />
+			<Add directory="tools\BSGFX\bin" />
 			<Add directory="tools\SDL-1.2.14\lib" />
-			<Add directory="tools\SDL_image-1.2.10\lib" />
 		</Linker>
 		<Unit filename="include\bsgui\actions.h" />
-		<Unit filename="include\bsgui\bmfont.h" />
 		<Unit filename="include\bsgui\bsgui.h" />
 		<Unit filename="include\bsgui\buttons.h" />
 		<Unit filename="include\bsgui\checkboxes.h" />
 		<Unit filename="include\bsgui\controls.h" />
 		<Unit filename="include\bsgui\draw.h" />
 		<Unit filename="include\bsgui\filebrowser.h" />
-		<Unit filename="include\bsgui\font.h" />
-		<Unit filename="include\bsgui\image.h" />
-		<Unit filename="include\bsgui\imageopengl.h" />
 		<Unit filename="include\bsgui\inputboxes.h" />
 		<Unit filename="include\bsgui\labels.h" />
 		<Unit filename="include\bsgui\listboxes.h" />
@@ -74,14 +69,11 @@
 		<Unit filename="include\bsgui\sliders.h" />
 		<Unit filename="include\bsgui\theme.h" />
 		<Unit filename="include\bsgui\windows.h" />
-		<Unit filename="src\bmfont.cpp" />
 		<Unit filename="src\buttons.cpp" />
 		<Unit filename="src\checkboxes.cpp" />
 		<Unit filename="src\controls.cpp" />
 		<Unit filename="src\draw.cpp" />
 		<Unit filename="src\filebrowser.cpp" />
-		<Unit filename="src\font.cpp" />
-		<Unit filename="src\imageopengl.cpp" />
 		<Unit filename="src\inputboxes.cpp" />
 		<Unit filename="src\labels.cpp" />
 		<Unit filename="src\listboxes.cpp" />

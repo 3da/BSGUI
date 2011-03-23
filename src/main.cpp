@@ -8,9 +8,6 @@
 #include "bsgui/screen.h"
 #include "bsgui/controls.h"
 
-#include <GL/GL.h>
-#include <SDL/SDL.h>
-
 namespace BSGUI
 {
 

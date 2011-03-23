@@ -2,7 +2,7 @@
 
 namespace BSGUI
 {
-	Picture::Picture(Control *parent, Theme &t, int x1, int y1, int x2, int y2, Image *img)
+	Picture::Picture(Control *parent, Theme &t, int x1, int y1, int x2, int y2, BSGFX::Texture *img)
 	:Control(parent, t)
 	{
 		image = img;
@@ -15,7 +15,7 @@ namespace BSGUI
 
 	}
 
-	void Picture::SetImage(Image *img)
+	void Picture::SetImage(BSGFX::Texture *img)
 	{
 		image = img;
 		Place(x1, y1, x2, y2);
@@ -28,8 +28,8 @@ namespace BSGUI
 		int width = x2-x1;
 		int height = y2-y1;
 
-		scaleX = width/image->GetWidth();
-		scaleY = height/image->GetHeight();
+		//scaleX = width/image->GetWidth();
+		//scaleY = height/image->GetHeight();
 	}
 
 	void Picture::Render()
@@ -37,7 +37,8 @@ namespace BSGUI
 		int x1, y1, x2, y2;
 		GetBounds(x1, y1, x2, y2);
 		color.Use();
-		image->Draw(IF_ALIGN_LEFT, x1, y1, 0, scaleX, scaleY);
+		BSGFX::Drawing::Sprite(x1, y1, image, scaleX, scaleY);
+		//image->Draw(IF_ALIGN_LEFT, x1, y1, 0, scaleX, scaleY);
 	}
 
 

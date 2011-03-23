@@ -14,9 +14,8 @@
 #undef DELETE
 #endif
 #endif
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <SDL/SDL.h>
+
+#include <BSGFX.h>
 
 typedef unsigned int	uint;
 
@@ -24,7 +23,6 @@ typedef unsigned int	uint;
 #include <bsgui/actions.h>
 #include <bsgui/controls.h>
 #include <bsgui/screen.h>
-#include <bsgui/image.h>
 #include <bsgui/windows.h>
 #include <bsgui/labels.h>
 #include <bsgui/buttons.h>
@@ -41,9 +39,9 @@ typedef unsigned int	uint;
 #include <bsgui/progressbars.h>
 #include <bsgui/draw.h>
 #include <bsgui/passwordbox.h>
-#include <bsgui/bmfont.h>
-#include <bsgui/imageopengl.h>
 #include <bsgui/picture.h>
+
+#include <SDL.h>
 
 namespace BSGUI
 {

@@ -18,7 +18,7 @@ Window	*win;
 Screen	*screen1, *screen2;
 Label	*fps;
 
-BMFont *font;
+BSGFX::Font *font;
 
 Theme themeDefault;
 Theme themeRed;
@@ -175,7 +175,7 @@ void Render()
 	progress += 0.008;
 }
 
-void InitOpenGL()
+/*void InitOpenGL()
 {
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
@@ -199,12 +199,12 @@ void InitOpenGL()
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(60.0f, 800.0f/600.0f, 1.0f, 1024.0f);
 	glMatrixMode(GL_MODELVIEW);
-}
+}*/
 
 void CreateUI()
 {
-	IMG_Init(IMG_INIT_PNG|IMG_INIT_JPG);
-	font = new BMFont("font.fnt");
+
+	font = new BSGFX::Font("font.fnt");
 	font->Init();
 	themeDefault.font = font;
 	themeDefault.fontSize = 0.5;
@@ -217,8 +217,10 @@ void CreateUI()
 	themeRed.colorFrameFocused.Set(0.7, 0.3, 0.2, 0.5);
 	themeRed.colorFrameHovered.Set(0.8, 0.2, 0.3, 0.5);
 	themeRed.colorFrameNormal.Set(0.65, 0.3, 0.3, 0.5);
-	Draw::SetCursorImage(ImageOpenGL::LoadImage("cursor.png"));
-	Draw::SetCursorAlign(IF_ALIGN_CENTER);
+	BSGFX::Texture *cursor = new BSGFX::Texture;
+	cursor->Load("cursor.png");
+	Draw::SetCursorImage(cursor);
+	Draw::SetCursorAlign(BSGFX::A_CENTER);
 
 	screen1 = new Screen(themeDefault);
 
@@ -312,13 +314,13 @@ void CreateUI()
 	Window *win5 = new Window(screen1, themeDefault, "Resizeable window");
 	win5->Center();
 	win5->Move(win5->x1, win5->y1 - 160);
-	Image *img = ImageOpenGL::LoadImage("spongebob.jpg");
-	img->GetHeight();
+	BSGFX::Texture *spongebob = new BSGFX::Texture;
+	spongebob->Load("spongebob.jpg");
 	int width, height;
 	win5->GetClientSize(width, height);
 	win5->resizeable = true;
 	win5->actionResized = ImageWinResizedAction;
-	Picture *bob = new Picture(win5, themeDefault, 10,10, width-10, height-30, img);
+	Picture *bob = new Picture(win5, themeDefault, 10,10, width-10, height-30, spongebob);
 	bob->name = "bob";
 
 	(new Button(Screen::screen, themeDefault, 750, 5, 795, 30, "Quit"))->actionPressed = TerminateAppAction;
@@ -389,7 +391,8 @@ void RunMe()
 
 int main(int argc, char **argv)
 {
-	InitOpenGL();
+	BSGFX::Initialize(BSGFX::IT_PNG|BSGFX::IT_JPG);
+	BSGFX::Screen::Initialize(800, 600, 0, false, "BSGUI test");
 
 	CreateUI();
 

@@ -7,9 +7,7 @@
 #include <GL/GL.h>
 #include "bsgui/draw.h"
 #include "bsgui/screen.h"
-#include "bsgui/font.h"
-
-#include <SDL/SDL.h>
+#include <Font.h>
 
 namespace BSGUI
 {
@@ -34,11 +32,11 @@ struct ClipArea
 
 static int	orthoEnableCount = 0;
 
-static Image *cursorImage = 0;
+static BSGFX::Texture *cursorImage = 0;
 static ClipArea	*carea = 0;
-static unsigned long cursorFlags = IF_ALIGN_TOP_LEFT;
+static unsigned long cursorFlags = BSGFX::A_TOP_LEFT;
 
-bool Draw::SetCursorImage(Image *image)
+bool Draw::SetCursorImage(BSGFX::Texture *image)
 {
 	cursorImage = image;
 	return true;
@@ -49,7 +47,7 @@ void Draw::DrawCursor(int x, int y)
 	if (!cursorImage)
 		return;
 	Color(1,1,1,1).Use();
-	cursorImage->Draw(cursorFlags, x, y, 0, 1, 1);
+	BSGFX::Drawing::Sprite(x, y, cursorImage, 1, 1, 0, cursorFlags);
 }
 
 void Draw::SetCursorAlign(unsigned long flags)

@@ -1,6 +1,8 @@
 #include "bsgui/theme.h"
 
-#include "bsgui/font.h"
+#include <Font.h>
+
+#include <GL/GL.h>
 
 namespace BSGUI
 {
@@ -30,7 +32,7 @@ Theme::Theme()
 void Theme::DrawString(int x, int y, const MyString str, bool center)
 {
 	if (font)
-		font->DrawString(x,y,str.c_str(),(center)?IF_ALIGN_CENTER:IF_ALIGN_VERT_CENTER,fontSize);
+		font->DrawString(x,y,str.c_str(),(center)?BSGFX::A_CENTER:BSGFX::A_VERT_CENTER,fontSize);
 }
 
 int Theme::StringWidth(const MyString str)
