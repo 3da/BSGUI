@@ -1,0 +1,57 @@
+EXPORTS
+    _ZN5BSGFX10InitializeEm @1
+    _ZN5BSGFX4Font10DrawStringEiiPKwmfm @2
+    _ZN5BSGFX4Font12HasCharacterEm @3
+    _ZN5BSGFX4Font13GetFontHeightEf @4
+    _ZN5BSGFX4Font13GetFontHeightEv @5
+    _ZN5BSGFX4Font14GetStringWidthEPKwfm @6
+    _ZN5BSGFX4Font15StringRowParser10GetNextRowERPKwRmPj @7
+    _ZN5BSGFX4Font15StringRowParser5ResetEPS0_PKwfjm @8
+    _ZN5BSGFX4Font15StringRowParserC1EPS0_PKwfjm @9
+    _ZN5BSGFX4Font15StringRowParserC2EPS0_PKwfjm @10
+    _ZN5BSGFX4Font16GetStringMetricsERjS1_PKwfjm @11
+    _ZN5BSGFX4Font4InitEv @12
+    _ZN5BSGFX4Font4LoadEPKc @13
+    _ZN5BSGFX4Font4PageC1Ev @14
+    _ZN5BSGFX4Font4PageC2Ev @15
+    _ZN5BSGFX4Font4PageD1Ev @16
+    _ZN5BSGFX4Font4PageD2Ev @17
+    _ZN5BSGFX4Font6ReloadEv @18
+    _ZN5BSGFX4Font8DrawTextEiiPKwmfjm @19
+    _ZN5BSGFX4Font8FindCharEm @20
+    _ZN5BSGFX4Font8FindKernEll @21
+    _ZN5BSGFX4Font8FindKernElll @22
+    _ZN5BSGFX4Font8FontData5ResetEv @23
+    _ZN5BSGFX4Font8FontDataC1Ev @24
+    _ZN5BSGFX4Font8FontDataC2Ev @25
+    _ZN5BSGFX4Font8FontDataD1Ev @26
+    _ZN5BSGFX4Font8FontDataD2Ev @27
+    _ZN5BSGFX4FontC1EPKc @28
+    _ZN5BSGFX4FontC2EPKc @29
+    _ZN5BSGFX4FontD1Ev @30
+    _ZN5BSGFX4FontD2Ev @31
+    _ZN5BSGFX6Screen10InitializeEjjjbPKcb @32
+    _ZN5BSGFX6Screen11SetupOpenglEjj @33
+    _ZN5BSGFX6Screen7captionE @34 DATA
+    _ZN5BSGFX6Screen9videomodeE @35 DATA
+    _ZN5BSGFX7Drawing10ClearColorEfff @36
+    _ZN5BSGFX7Drawing10circleListE @37 DATA
+    _ZN5BSGFX7Drawing10spriteLogoE @38 DATA
+    _ZN5BSGFX7Drawing12CircleFilledEiii @39
+    _ZN5BSGFX7Drawing16InitializeCircleEj @40
+    _ZN5BSGFX7Drawing4LineEiiiif @41
+    _ZN5BSGFX7Drawing4RectEiiiimfPKNS_7TextureEPKNS_9RectangleE @42
+    _ZN5BSGFX7Drawing5ColorEffff @43
+    _ZN5BSGFX7Drawing5FlushEv @44
+    _ZN5BSGFX7Drawing6CircleEiiif @45
+    _ZN5BSGFX7Drawing6SpriteEiiPNS_7TextureEfffmPKNS_9RectangleE @46
+    _ZN5BSGFX7Drawing6SpriteEv @47
+    _ZN5BSGFX7Texture4LoadEPKc @48
+    _ZN5BSGFX7Texture4LoadEPKcj @49
+    _ZN5BSGFX7TextureC1EjjjPf @50
+    _ZN5BSGFX7TextureC2EjjjPf @51
+    _ZN5BSGFX9Videomode10GetAvaibleEv @52
+    _ZN5BSGFX9Videomode10InitializeEPKc @53
+    _ZNK5BSGFX4Font11GetFontNameEv @54
+    _ZNSt6vectorIN5BSGFX9VideomodeESaIS1_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS1_S3_EERKS1_ @55
+    _get_output_format @56

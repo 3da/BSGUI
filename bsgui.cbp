@@ -36,16 +36,16 @@
 			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 			<Add directory="include" />
-			<Add directory="tools\BSGFX\include" />
-			<Add directory="tools\SDL-1.2.14\include\SDL" />
+			<Add directory="dependences\BSGFX\include" />
+			<Add directory="dependences\BSGFX\dependences\SDL-1.2.14\include\SDL" />
 		</Compiler>
 		<Linker>
 			<Add library="SDL" />
 			<Add library="glu32" />
 			<Add library="opengl32" />
 			<Add library="BSGFX" />
-			<Add directory="tools\BSGFX\bin" />
-			<Add directory="tools\SDL-1.2.14\lib" />
+			<Add directory="dependences\BSGFX\bin" />
+			<Add directory="dependences\BSGFX\dependences\SDL-1.2.14\lib" />
 		</Linker>
 		<Unit filename="include\bsgui\actions.h" />
 		<Unit filename="include\bsgui\bsgui.h" />
