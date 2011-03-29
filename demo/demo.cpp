@@ -217,8 +217,7 @@ void CreateUI()
 	themeRed.colorFrameFocused.Set(0.7, 0.3, 0.2, 0.5);
 	themeRed.colorFrameHovered.Set(0.8, 0.2, 0.3, 0.5);
 	themeRed.colorFrameNormal.Set(0.65, 0.3, 0.3, 0.5);
-	BSGFX::Texture *cursor = new BSGFX::Texture;
-	cursor->Load("cursor.png");
+	BSGFX::Texture *cursor = BSGFX::Texture::Load("cursor.png");
 	Draw::SetCursorImage(cursor);
 	Draw::SetCursorAlign(BSGFX::A_CENTER);
 
@@ -314,8 +313,8 @@ void CreateUI()
 	Window *win5 = new Window(screen1, themeDefault, "Resizeable window");
 	win5->Center();
 	win5->Move(win5->x1, win5->y1 - 160);
-	BSGFX::Texture *spongebob = new BSGFX::Texture;
-	spongebob->Load("spongebob.jpg");
+	BSGFX::Texture *spongebob = BSGFX::Texture::Load("spongebob.jpg");
+
 	int width, height;
 	win5->GetClientSize(width, height);
 	win5->resizeable = true;
@@ -349,6 +348,8 @@ void CreateUI()
  	(new Button(screen2, themeDefault, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
 
  	fps = new Label(screen1, themeDefault, 5, 40, "?? fps ");
+
+ 	new BSGUI::FileBrowser(themeDefault, screen1, L"Caption", L"c:\\");
 
  	screen1->Activate();
 }

@@ -58,7 +58,7 @@ FileBrowser::FileBrowser(Theme &t, Screen *screen, const MyString caption, const
 	int	w, h;
 	Label	*l;
 	Button	*b;
-	Resize(500, 300);
+	Resize(500, 350);
 	Center();
 	this->path = path;
 
@@ -67,7 +67,7 @@ FileBrowser::FileBrowser(Theme &t, Screen *screen, const MyString caption, const
 	GetClientSize(w,h);
 
 	l = new Label(this, t, 5, 5, L"Files and directories:");
-	files = new Listbox(this, t, 5, l->y2 + 5, w-10, h-40);
+	files = new Listbox(this, t, 5, l->y2 + 5, w-10, h-60);
 	files->actionModified = SelectFileBrowserAction;
 	l = new Label(this, t, 5, files->y2+9, L"Filename:");
 	filename = new Inputbox(this, t, l->x2 + 5, files->y2 + 5, w-130, files->y2 + 30);
