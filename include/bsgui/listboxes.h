@@ -26,7 +26,6 @@ struct ListboxItem : public Control
 
 	virtual void Render();
 	virtual void Focus();
-	//virtual void GetBounds();
 };
 
 struct Listbox : public Scrollbox

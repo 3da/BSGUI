@@ -72,9 +72,7 @@ struct Control
 	virtual void Center(bool horizontal = true, bool vertical = true);
 	virtual void Translate(int &x, int &y);
 	virtual void GetBounds(int &x1, int &y1, int &x2, int &y2);
-	//virtual void GetChildrenBounds(int &x1, int &y1, int &x2, int &y2);
 	virtual void GetBoundsChildren(int &x1, int &y1, int &x2, int &y2);
-	//virtual void GetBoundsChildren(int &x1, int &y1, int &x2, int &y2);
 	virtual void SetTheme(Theme &t);
 	virtual void GetClientSize(int &w, int &h);
 
@@ -105,13 +103,6 @@ struct Control
 	static Control *lastChildUnderMouse;
 	static Control *trackControl;
 	static Control *keyboardFocusControl;
-
-/*	inline void FreeAction(Action *a)
-	{
-		if (a && a->autoDelete)
-			delete a;
-	}
-*/
 
 	inline void RunAction(CallbackActionFunc &a)
 	{

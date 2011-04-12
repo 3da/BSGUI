@@ -33,7 +33,6 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 			<Add directory="include" />
 			<Add directory="dependences\BSGFX\include" />
@@ -54,6 +53,7 @@
 		<Unit filename="include\bsgui\controls.h" />
 		<Unit filename="include\bsgui\draw.h" />
 		<Unit filename="include\bsgui\filebrowser.h" />
+		<Unit filename="include\bsgui\gfxsettings.h" />
 		<Unit filename="include\bsgui\inputboxes.h" />
 		<Unit filename="include\bsgui\labels.h" />
 		<Unit filename="include\bsgui\listboxes.h" />
@@ -74,6 +74,7 @@
 		<Unit filename="src\controls.cpp" />
 		<Unit filename="src\draw.cpp" />
 		<Unit filename="src\filebrowser.cpp" />
+		<Unit filename="src\gfxsettings.cpp" />
 		<Unit filename="src\inputboxes.cpp" />
 		<Unit filename="src\labels.cpp" />
 		<Unit filename="src\listboxes.cpp" />

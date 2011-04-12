@@ -36,11 +36,11 @@
 			<Add option="-Wall" />
 			<Add option="-static-libgcc" />
 			<Add directory="..\include" />
-			<Add directory="..\tools\SDL-1.2.14\include" />
-			<Add directory="..\tools\SDL_image-1.2.10\include" />
-			<Add directory="..\tools\SDL-1.2.14\include\SDL" />
-			<Add directory="..\tools\SDL_image-1.2.10\lib" />
-			<Add directory="..\tools\BSGFX\include" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL-1.2.14\include" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL_image-1.2.10\include" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL-1.2.14\include\SDL" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL_image-1.2.10\lib" />
+			<Add directory="..\dependences\BSGFX\include" />
 		</Compiler>
 		<Linker>
 			<Add library="mingw32" />
@@ -49,10 +49,11 @@
 			<Add library="glu32" />
 			<Add library="opengl32" />
 			<Add library="BSGFX" />
-			<Add directory="..\tools\SDL-1.2.14\lib" />
-			<Add directory="..\tools\SDL_image-1.2.10\lib" />
-			<Add directory="..\tools\BSGFX\bin" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL-1.2.14\lib" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL_image-1.2.10\lib" />
+			<Add directory="..\dependences\BSGFX\bin" />
 			<Add directory="..\bin" />
+			<Add directory="..\dependences\BSGFX\dependences\SDL-1.2.14\bin" />
 		</Linker>
 		<Unit filename="demo.cpp" />
 		<Extensions>

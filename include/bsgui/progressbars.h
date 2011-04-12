@@ -18,9 +18,6 @@ struct ProgressBar : public Control
 	ProgressBar(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
 	virtual ~ProgressBar();
 
-	//virtual void setMax(float newMax);
-	//virtual void setValue(float newValue);
-
 	virtual void Render();
 };
 

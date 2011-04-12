@@ -41,8 +41,6 @@ public:
 
 	void Set(const std::string &text);
 	void Set(const std::wstring &text);
-	//void Set(const MyString &text);
-
 
 	const char *GetAscii();
 	const wchar_t *GetUnicode() const {return c_str();}

@@ -63,10 +63,6 @@ struct Theme
 	BSGFX::Font *font;
 	float fontSize;
 
-	//int padLeft;
-	//int padTop;
-	//int padRight;
-	//int padBottom;
 	int height;
 	int scrollSize;
 	Color colorTextFocused;

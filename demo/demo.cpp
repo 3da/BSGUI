@@ -349,7 +349,19 @@ void CreateUI()
 
  	fps = new Label(screen1, themeDefault, 5, 40, "?? fps ");
 
- 	new BSGUI::FileBrowser(themeDefault, screen1, L"Caption", L"c:\\");
+ 	//new BSGUI::FileBrowser(themeDefault, screen1, L"Caption", L"c:\\");
+
+ 	BSGUI::Window *gfxWindow = new BSGUI::Window(screen1, themeDefault, L"GFX select");
+ 	gfxWindow->Resize(500, 500);
+ 	BSGUI::Listbox *lstModes = new BSGUI::Listbox(gfxWindow, themeDefault, 10, 10, 200, 100);
+ 	std::vector<BSGFX::Videomode> modes = BSGFX::Videomode::GetAvaible();
+ 	for (unsigned int i = 0; i < modes.size(); i++)
+ 	{
+ 		wchar_t title[128];
+ 		swprintf(title, L"%dx%d",modes[i].GetWidth(), modes[i].GetHeight());
+ 		lstModes->AddItem(title);
+ 	}
+
 
  	screen1->Activate();
 }
