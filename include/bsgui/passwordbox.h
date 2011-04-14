@@ -18,7 +18,7 @@ struct Passwordbox : public Control
 
 	CallbackActionFunc actionPressed;
 
-	Passwordbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
+	Passwordbox(Control *parent, int x1, int y1, int x2, int y2);
 	virtual ~Passwordbox();
 
 	void SetText(const MyString text);

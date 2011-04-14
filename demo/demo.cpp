@@ -119,7 +119,7 @@ void FileSelectedAction(Control *sender)
 
 void SelectFileAction(Control *sender)
 {
-	FileBrowser	*browser = new FileBrowser(themeDefault, Screen::screen, "Select File");
+	FileBrowser	*browser = new FileBrowser(Screen::screen, "Select File");
 	browser->actionSelected = FileSelectedAction;
 }
 
@@ -203,7 +203,6 @@ void Render()
 
 void CreateUI()
 {
-
 	font = new BSGFX::Font("font.fnt");
 	font->Init();
 	themeDefault.font = font;
@@ -217,41 +216,43 @@ void CreateUI()
 	themeRed.colorFrameFocused.Set(0.7, 0.3, 0.2, 0.5);
 	themeRed.colorFrameHovered.Set(0.8, 0.2, 0.3, 0.5);
 	themeRed.colorFrameNormal.Set(0.65, 0.3, 0.3, 0.5);
+	SetDefaultTheme(themeDefault);
 	BSGFX::Texture *cursor = BSGFX::Texture::Load("cursor.png");
 	Draw::SetCursorImage(cursor);
 	Draw::SetCursorAlign(BSGFX::A_CENTER);
 
-	screen1 = new Screen(themeDefault);
+	screen1 = new Screen();
 
 
-	win = new Window(screen1, themeDefault, "Unmovable window");
+	win = new Window(screen1, "Unmovable window");
 	win->Center();
 	win->movable = false;
- 	new Label(win, themeDefault, 5, 0, "A Label");
- 	(new Button(win, themeDefault, 10, 25, 180, 50, "About"))->actionPressed = AboutBoxAction;
- 	(new Button(win, themeDefault, 10, 55, 180, 80, "Use red theme"))->actionPressed = SetThemeRed;
- 	(new Button(win, themeDefault, 10, 85, 180, 110, "Use default theme"))->actionPressed = SetThemeDefault;
+ 	new Label(win, 5, 0, "A Label");
+ 	(new Button(win, 10, 25, 180, 50, "About"))->actionPressed = AboutBoxAction;
+ 	(new Button(win, 10, 55, 180, 80, "Use red theme"))->actionPressed = SetThemeRed;
+ 	(new Button(win, 10, 85, 180, 110, "Use default theme"))->actionPressed = SetThemeDefault;
 
-	Window *win11 = new Window(screen1, themeRed, "Unicode test window");
+	Window *win11 = new Window(screen1, "Unicode test window");
 	win11->movable = false;
 	win11->Move(0, 400);
 	win11->Center(true, false);
- 	new Label(win11, themeRed, 5, 0, L"Русский язык");
- 	new Label(win11, themeRed, 5, 50, L"Қазақ тілі");
+ 	new Label(win11, 5, 0, L"Русский язык");
+ 	new Label(win11, 5, 50, L"Қазақ тілі");
+ 	win11->SetTheme(themeRed, true);
 
 
 
-	Window	*win2 = new Window(screen1, themeDefault, "Fluffy window");
+	Window	*win2 = new Window(screen1, "Fluffy window");
 	win2->Center();
 	win2->Move(win2->x1 + 200, win2->y1 - 70);
 	win2->Resize(win2->x2-win2->x1+1, win2->y2-win2->y1+270);
 	win2->movable = true;
 
-	(new Checkbox(win2, themeDefault, 10, 0, 180, 20, "Checker"))->checked = true;
-	new Checkbox(win2, themeDefault, 10, 25, 180, 45, "Checker 2");
-	new Checkbox(win2, themeDefault, 10, 50, 180, 70, "Checker 3");
+	(new Checkbox(win2, 10, 0, 180, 20, "Checker"))->checked = true;
+	new Checkbox(win2, 10, 25, 180, 45, "Checker 2");
+	new Checkbox(win2, 10, 50, 180, 70, "Checker 3");
 
-	Listbox *lbox = new Listbox(win2, themeDefault, 10, 80, 175, 200);
+	Listbox *lbox = new Listbox(win2, 10, 80, 175, 200);
 	lbox->AddItem("A string item");
 	for (int i=0;i<20;i++)
 	{
@@ -260,47 +261,47 @@ void CreateUI()
 		lbox->AddItem(buff);
 	}
 	lbox->name = "listbox";
-	Button *b1 = (new Button(win2, themeDefault, 10, 210, 175, 235, "Add wide item"));//
+	Button *b1 = (new Button(win2, 10, 210, 175, 235, "Add wide item"));//
 	b1->actionPressed = AddWideItemAction;
 	b1->visible = true;
-	(new Button(win2, themeDefault, 10, 240, 175, 265, "Remove active item"))->actionPressed = RemoveItemAction;
-	Inputbox *inpBox11 = new Inputbox(win2, themeDefault, 10, 270, 175, 295);
+	(new Button(win2, 10, 240, 175, 265, "Remove active item"))->actionPressed = RemoveItemAction;
+	Inputbox *inpBox11 = new Inputbox(win2, 10, 270, 175, 295);
 	inpBox11->name = "inputbox";
 	inpBox11->actionPressed = AddTheAboveTextAction;
-	(new Button(win2, themeDefault, 10, 300, 175, 325, "Add the above text"))->actionPressed = AddTheAboveTextAction;
+	(new Button(win2, 10, 300, 175, 325, "Add the above text"))->actionPressed = AddTheAboveTextAction;
 
-	ProgressBar	*pbar = new ProgressBar(win2, themeDefault, 10, 330, 175, 355);
+	ProgressBar	*pbar = new ProgressBar(win2, 10, 330, 175, 355);
 	pbar->value = 10;
-	ProgressBar	*pbar2 = new ProgressBar(win2, themeDefault, 10, 360, 175, 385);
+	ProgressBar	*pbar2 = new ProgressBar(win2, 10, 360, 175, 385);
 	pbar2->name = "pbar2";
 	pbar2->max = 62;
 
-	Window	*win3 = new Window(screen1, themeDefault, "A window");
+	Window	*win3 = new Window(screen1, "A window");
 	win3->Center();
 	win3->Move(win3->x1 - 200, win3->y1 - 70);
 	win3->Resize(190, 400);
 
- 	new Label(win3, themeDefault, 5, 25, "Object resolution:");
-	stepCount = new Slider(win3, themeDefault, 10, 50, 180, 65);
+ 	new Label(win3, 5, 25, "Object resolution:");
+	stepCount = new Slider(win3, 10, 50, 180, 65);
 	stepCount->max = 61;
 	stepCount->value = 3;
 	stepCount->actionModified = StepsModifiedAction;
 
- 	new Label(win3, themeDefault, 5, 80, "Object size:");
-	sizeSlider = new Slider(win3, themeDefault, 10, 105, 180, 120);
+ 	new Label(win3, 5, 80, "Object size:");
+	sizeSlider = new Slider(win3, 10, 105, 180, 120);
 	sizeSlider->max = 5;
 	sizeSlider->value = 30;
 
- 	new Label(win3, themeDefault, 5, 175, "Background intensity:");
-	backSlider = new Slider(win3, themeDefault, 10, 200, 180, 215);
+ 	new Label(win3, 5, 175, "Background intensity:");
+	backSlider = new Slider(win3, 10, 200, 180, 215);
 	backSlider->max = 1;
 	backSlider->value = 45;
 
- 	Scrollbox	*sbox = new Scrollbox(win3, themeDefault, 10, 240, 175, 350);
- 	new Button(sbox, themeDefault, 10, 10, 200, 35, "Clipped button");
- 	new Button(sbox, themeDefault, 10, 40, 200, 65, "Another clipped button");
- 	new Checkbox(sbox, themeDefault, 10, 80, 200, 100, "Clipped checkbox");
- 	new Label(sbox, themeDefault, 10, 120, "Clipped label");
+ 	Scrollbox	*sbox = new Scrollbox(win3, 10, 240, 175, 350);
+ 	new Button(sbox, 10, 10, 200, 35, "Clipped button");
+ 	new Button(sbox, 10, 40, 200, 65, "Another clipped button");
+ 	new Checkbox(sbox, 10, 80, 200, 100, "Clipped checkbox");
+ 	new Label(sbox, 10, 120, "Clipped label");
 
 
 	//Window	*win4 = new Window(Screen::screen, "ModelView control");
@@ -310,7 +311,7 @@ void CreateUI()
 	//ModelView *mview = new ModelView(win4, 10, 10, 175, 110);
 	//mview->renderView = new CallbackAction(renderObjectAction);
 
-	Window *win5 = new Window(screen1, themeDefault, "Resizeable window");
+	Window *win5 = new Window(screen1, "Resizeable window");
 	win5->Center();
 	win5->Move(win5->x1, win5->y1 - 160);
 	BSGFX::Texture *spongebob = BSGFX::Texture::Load("spongebob.jpg");
@@ -319,41 +320,39 @@ void CreateUI()
 	win5->GetClientSize(width, height);
 	win5->resizeable = true;
 	win5->actionResized = ImageWinResizedAction;
-	Picture *bob = new Picture(win5, themeDefault, 10,10, width-10, height-30, spongebob);
+	Picture *bob = new Picture(win5, 10,10, width-10, height-30, spongebob);
 	bob->name = "bob";
 
-	(new Button(Screen::screen, themeDefault, 750, 5, 795, 30, "Quit"))->actionPressed = TerminateAppAction;
+	(new Button(Screen::screen, 750, 5, 795, 30, "Quit"))->actionPressed = TerminateAppAction;
 
 
 
 
-	screen2 = new Screen(themeDefault);
+	screen2 = new Screen();
 	//Window	*nwin = new Window(screen2, "A window in screen 2");
 	//nwin->Center();
 
-	BSGUI::Window *winConnecting = new BSGUI::Window(screen2, themeDefault, "Connecting");
+	BSGUI::Window *winConnecting = new BSGUI::Window(screen2, "Connecting");
 	winConnecting->Resize(200,150);
 	winConnecting->Center();
 	winConnecting->movable = false;
 
-	new BSGUI::Label(winConnecting, themeDefault, 10, 10, "Connecting");
+	new BSGUI::Label(winConnecting, 10, 10, "Connecting");
 
 
 
-	(new BSGUI::Button(winConnecting, themeDefault, 30, 80, 170, 110, "Quit"));
+	(new BSGUI::Button(winConnecting, 30, 80, 170, 110, "Quit"));
 
- 	(new Button(Screen::screen, themeDefault, 5, 5, 105, 30, "Screen 1"))->actionPressed = ActivateScreen1;
- 	(new Button(Screen::screen, themeDefault, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
- 	(new Button(screen2, themeDefault, 5, 5, 105, 30, "Screen 1"))->actionPressed = ActivateScreen1;
- 	(new Button(screen2, themeDefault, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
+ 	(new Button(Screen::screen, 5, 5, 105, 30, "Screen 1"))->actionPressed = ActivateScreen1;
+ 	(new Button(Screen::screen, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
+ 	(new Button(screen2, 5, 5, 105, 30, "Screen 1"))->actionPressed = ActivateScreen1;
+ 	(new Button(screen2, 110, 5, 210, 30, "Screen 2"))->actionPressed = ActivateScreen2;
 
- 	fps = new Label(screen1, themeDefault, 5, 40, "?? fps ");
+ 	fps = new Label(screen1, 5, 40, "?? fps ");
 
- 	//new BSGUI::FileBrowser(themeDefault, screen1, L"Caption", L"c:\\");
-
- 	BSGUI::Window *gfxWindow = new BSGUI::Window(screen1, themeDefault, L"GFX select");
+ 	BSGUI::Window *gfxWindow = new BSGUI::Window(screen1, L"GFX select");
  	gfxWindow->Resize(500, 500);
- 	BSGUI::Listbox *lstModes = new BSGUI::Listbox(gfxWindow, themeDefault, 10, 10, 200, 100);
+ 	BSGUI::Listbox *lstModes = new BSGUI::Listbox(gfxWindow, 10, 10, 200, 100);
  	std::vector<BSGFX::Videomode> modes = BSGFX::Videomode::GetAvaible();
  	for (unsigned int i = 0; i < modes.size(); i++)
  	{

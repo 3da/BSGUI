@@ -18,7 +18,7 @@ struct Renderer : public Control
 	void			*RendererListEntry;
 	bool			enabled;
 
-	Renderer(Control *parent, Theme &t);
+	Renderer(Control *parent);
 	virtual ~Renderer();
 
 	virtual void Place(int x1, int y1, int x2, int y2);

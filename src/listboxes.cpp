@@ -12,8 +12,8 @@
 namespace BSGUI
 {
 
-ListboxItem::ListboxItem(Control *parent, Theme &t)
-	: Control(parent, t)
+ListboxItem::ListboxItem(Control *parent)
+	: Control(parent)
 {
 	box = (Listbox*)parent;
 	//minimumWidth = 16;
@@ -63,8 +63,8 @@ void ListboxItem::Focus()
 }
 
 
-Listbox::Listbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
-	: Scrollbox(parent, t, x1, y1, x2, y2)
+Listbox::Listbox(Control *parent, int x1, int y1, int x2, int y2)
+	: Scrollbox(parent, x1, y1, x2, y2)
 {
 	active = NULL;
 	actionModified = 0;
@@ -88,7 +88,7 @@ void Listbox::Clear()
 void Listbox::AddItem(const MyString text)
 {
 
-	(new ListboxItem(this, theme))->text = text;
+	(new ListboxItem(this))->text = text;
 	Layout();
 }
 

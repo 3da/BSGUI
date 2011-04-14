@@ -52,8 +52,8 @@ static void SelectFileBrowserAction(Control *sender)
 	browser->filename->text = browser->files->active->text;
 }
 
-FileBrowser::FileBrowser(Theme &t, Screen *screen, const MyString caption, const MyString path)
-	: Window(screen, t, caption)
+FileBrowser::FileBrowser(Screen *screen, const MyString caption, const MyString path)
+	: Window(screen, caption)
 {
 	int	w, h;
 	Label	*l;
@@ -66,14 +66,14 @@ FileBrowser::FileBrowser(Theme &t, Screen *screen, const MyString caption, const
 
 	GetClientSize(w,h);
 
-	l = new Label(this, t, 5, 5, L"Files and directories:");
-	files = new Listbox(this, t, 5, l->y2 + 5, w-10, h-60);
+	l = new Label(this, 5, 5, L"Files and directories:");
+	files = new Listbox(this, 5, l->y2 + 5, w-10, h-60);
 	files->actionModified = SelectFileBrowserAction;
-	l = new Label(this, t, 5, files->y2+9, L"Filename:");
-	filename = new Inputbox(this, t, l->x2 + 5, files->y2 + 5, w-130, files->y2 + 30);
-	b = new Button(this, t, w-125, files->y2 + 5, w-70, files->y2 + 30, L"Ok");
+	l = new Label(this, 5, files->y2+9, L"Filename:");
+	filename = new Inputbox(this, l->x2 + 5, files->y2 + 5, w-130, files->y2 + 30);
+	b = new Button(this, w-125, files->y2 + 5, w-70, files->y2 + 30, L"Ok");
 	b->actionPressed = CloseFileBrowserAction;
-	b = new Button(this, t, w-65, files->y2 + 5, w-10, files->y2+30, L"Cancel");
+	b = new Button(this, w-65, files->y2 + 5, w-10, files->y2+30, L"Cancel");
 	b->actionPressed = CancelFileBrowserAction;
 
 	ReloadFiles();

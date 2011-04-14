@@ -52,8 +52,8 @@ static void removeRenderer(RendererListItem *item)
 	delete item;
 }
 
-Renderer::Renderer(Control *parent, Theme &t)
-	: Control(parent, t)
+Renderer::Renderer(Control *parent)
+	: Control(parent)
 {
 	glGenTextures(1, &texture);
 	RendererListEntry = AddRenderer(this);

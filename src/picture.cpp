@@ -2,8 +2,8 @@
 
 namespace BSGUI
 {
-	Picture::Picture(Control *parent, Theme &t, int x1, int y1, int x2, int y2, BSGFX::Texture *img)
-	:Control(parent, t)
+	Picture::Picture(Control *parent, int x1, int y1, int x2, int y2, BSGFX::Texture *img)
+	:Control(parent)
 	{
 		image = img;
 		Place(x1, y1, x2, y2);

@@ -11,8 +11,8 @@
 namespace BSGUI
 {
 
-Scrollbox::Scrollbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
-	: Control(parent, t)
+Scrollbox::Scrollbox(Control *parent, int x1, int y1, int x2, int y2)
+	: Control(parent)
 {
 	Place(x1, y1, x2, y2);
 	hScroll = 0.0f;

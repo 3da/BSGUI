@@ -17,7 +17,7 @@ struct Slider : public Control
 
 	CallbackActionFunc actionModified;
 
-	Slider(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
+	Slider(Control *parent, int x1, int y1, int x2, int y2);
 	virtual ~Slider();
 
 	virtual void Render();

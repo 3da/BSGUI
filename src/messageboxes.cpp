@@ -11,6 +11,7 @@
 #include "bsgui/buttons.h"
 #include "bsgui/actions.h"
 #include "bsgui/screen.h"
+#include "bsgui/bsgui.h"
 
 namespace BSGUI
 {
@@ -22,9 +23,9 @@ static void CloseMessageBox(Control *sender)
 
 void MessageBox(Theme &t, const MyString msg, const MyString caption, bool exclusive)
 {
-	Window *w = new Window(Screen::screen, t, caption);
-	Label *l = new Label(w, t, 20, 20, msg);
-	Button *b = new Button(w, t, 0, 0, 100, 25, L"Ok");
+	Window *w = new Window(Screen::screen, caption);
+	Label *l = new Label(w, 20, 20, msg);
+	Button *b = new Button(w, 0, 0, 100, 25, L"Ok");
 	w->Resize((l->x2 - l->x1) + 40, 80);
 	l->Center();
 	b->Move(0, l->y2 + 15);
@@ -35,5 +36,11 @@ void MessageBox(Theme &t, const MyString msg, const MyString caption, bool exclu
 		w->MakeExclusive();
 	w->Center();
 }
+
+void MessageBox(const MyString msg, const MyString caption, bool exclusive)
+{
+	MessageBox(GetDefaultTheme(), msg, caption, exclusive);
+}
+
 
 }

@@ -21,7 +21,7 @@ struct Inputbox : public Control
 	CallbackActionFunc actionPressed;
 
 
-	Inputbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
+	Inputbox(Control *parent, int x1, int y1, int x2, int y2);
 	virtual ~Inputbox();
 
 	void SetText(const MyString text);

@@ -23,7 +23,7 @@ struct Window : public Control
 	int mX, mY;
 	class Image *icon;
 
-	Window(Screen *screen, Theme &t, const MyString caption);
+	Window(Screen *screen, const MyString caption);
 	virtual ~Window();
 
 	virtual void Render();

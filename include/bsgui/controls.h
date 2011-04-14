@@ -46,7 +46,7 @@ struct Control
 
 	struct PopupMenu *popupMenu;
 
-	Control(Control *parent, Theme &theme);
+	Control(Control *parent);
 	virtual ~Control();
 
 	virtual Control *FindChild(MyString name);
@@ -73,7 +73,9 @@ struct Control
 	virtual void Translate(int &x, int &y);
 	virtual void GetBounds(int &x1, int &y1, int &x2, int &y2);
 	virtual void GetBoundsChildren(int &x1, int &y1, int &x2, int &y2);
-	virtual void SetTheme(Theme &t);
+	void SetTheme(Theme &t, bool childs = false);
+	const Theme &GetTheme() const {return theme;}
+
 	virtual void GetClientSize(int &w, int &h);
 
 	// drawing helpers

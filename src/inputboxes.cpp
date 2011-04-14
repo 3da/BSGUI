@@ -10,8 +10,8 @@
 namespace BSGUI
 {
 
-Inputbox::Inputbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
-	: Control(parent, t)
+Inputbox::Inputbox(Control *parent, int x1, int y1, int x2, int y2)
+	: Control(parent)
 {
 
 	Place(x1, y1, x2, y2);

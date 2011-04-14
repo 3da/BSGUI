@@ -164,7 +164,7 @@ bool HandleSDLEvent(SDL_Event *ev)
 	return false;
 }
 
-Theme GetDefaultTheme()
+Theme &GetDefaultTheme()
 {
 	return defaultTheme;
 }

@@ -11,8 +11,8 @@
 namespace BSGUI
 {
 
-Label::Label(Control *parent, Theme &t, int x, int y, const MyString text)
-	: Control(parent, t)
+Label::Label(Control *parent, int x, int y, const MyString text)
+	: Control(parent)
 {
 	Move(x, y);
 	this->text = text;

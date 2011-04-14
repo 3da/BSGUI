@@ -17,7 +17,7 @@ struct Screen : public Control
 	int     		mouseX;
 	int     		mouseY;
 
-	Screen(Theme &t);
+	Screen();
 	virtual ~Screen();
 
 	virtual Screen *Activate();

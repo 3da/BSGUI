@@ -25,7 +25,7 @@ struct Button : public Control
 
 	CallbackActionFunc actionPressed;
 
-	Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const MyString caption, Image *bitmap=NULL);
+	Button(Control *parent, int x1, int y1, int x2, int y2, const MyString caption, Image *bitmap=NULL);
 	virtual ~Button();
 
 	virtual void SetBitmap(Image *newBitmap, bool autoDelete);

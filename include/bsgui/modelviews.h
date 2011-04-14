@@ -14,7 +14,7 @@ struct ModelView : public Renderer
 {
 	CallbackActionFunc renderView;
 
-	ModelView(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
+	ModelView(Control *parent, int x1, int y1, int x2, int y2);
 	virtual ~ModelView();
 
 	virtual void OffscreenRender();

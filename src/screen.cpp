@@ -13,8 +13,8 @@ namespace BSGUI
 
 Screen *Screen::screen = 0;
 
-Screen::Screen(Theme &t)
-	: Control(NULL, t)
+Screen::Screen()
+	: Control(NULL)
 {
 	GLint	vp[4];
 	glGetIntegerv(GL_VIEWPORT, vp);

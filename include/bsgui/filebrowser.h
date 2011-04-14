@@ -18,7 +18,7 @@ struct FileBrowser : public Window
 
 	CallbackActionFunc actionSelected;
 
-	FileBrowser(Theme &t, Screen *screen, const MyString caption, const MyString path=MyString());
+	FileBrowser(Screen *screen, const MyString caption, const MyString path=MyString());
 	virtual ~FileBrowser();
 
 	virtual const MyString GetFilename();

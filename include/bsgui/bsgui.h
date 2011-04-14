@@ -13,6 +13,9 @@
 #ifdef DELETE
 #undef DELETE
 #endif
+#ifdef MessageBox
+#undef MessageBox
+#endif
 #endif
 
 #include <BSGFX.h>
@@ -50,7 +53,7 @@ void Render();
 void Tick();
 bool HandleSDLEvent(SDL_Event *ev);
 
-Theme GetDefaultTheme();
+Theme &GetDefaultTheme();
 void SetDefaultTheme(Theme &theme);
 
 }

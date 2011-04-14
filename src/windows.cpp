@@ -15,8 +15,8 @@
 namespace BSGUI
 {
 
-Window::Window(Screen *screen, Theme &t, const MyString caption)
-	: Control(screen, t)
+Window::Window(Screen *screen, const MyString caption)
+	: Control(screen)
 {
 	moving = resizing = resizeable = false;
 	minWidth = 50;

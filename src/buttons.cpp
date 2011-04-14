@@ -14,9 +14,9 @@
 namespace BSGUI
 {
 
-Button::Button(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const MyString caption,
+Button::Button(Control *parent, int x1, int y1, int x2, int y2, const MyString caption,
 	Image *bitmap)
-	: Control(parent,t)
+	: Control(parent)
 {
 	Place(x1, y1, x2, y2);
 	this->caption = caption;

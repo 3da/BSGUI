@@ -16,7 +16,7 @@ struct Label : public Control
 {
 	MyString text;
 
-	Label(Control *parent, Theme &t, int x, int y, const MyString text);
+	Label(Control *parent, int x, int y, const MyString text);
 	virtual ~Label();
 
 	void SetText(const MyString text);

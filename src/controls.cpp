@@ -6,6 +6,7 @@
 #include "bsgui/controls.h"
 #include "bsgui/actions.h"
 #include "bsgui/draw.h"
+#include "bsgui/bsgui.h"
 //#include "bsgui/menus.h"
 
 #include <GL/GL.h>
@@ -19,7 +20,7 @@ Control *Control::lastChildUnderMouse = 0;
 Control *Control::trackControl = 0;
 Control *Control::keyboardFocusControl = 0;
 
-Control::Control(Control *parent, Theme &t)
+Control::Control(Control *parent)
 {
 	x1 = y1 = x2 = y2 = xShift = yShift = 0;
 	minWidth = minHeight = 0;
@@ -35,7 +36,7 @@ Control::Control(Control *parent, Theme &t)
 	actionResized = 0;
 	actionMoved = 0;
 	visible = true;
-	theme = t;
+	theme = GetDefaultTheme();
 
 	childFocus = 0;
 }
@@ -304,9 +305,11 @@ void Control::GetBoundsChildren(int &x1, int &y1, int &x2, int &y2)
 	GetBounds(x1,y1,x2,y2);
 }
 
-void Control::SetTheme(Theme &t)
+void Control::SetTheme(Theme &t, bool c)
 {
 	theme = t;
+	if (!c)
+		return;
 	if (childs.empty())
 		return;
 	std::vector<Control*>::iterator i;

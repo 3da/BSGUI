@@ -22,6 +22,13 @@ void MessageBox(
 				bool exclusive=true
 				);
 
+void MessageBox(
+				const MyString msg,
+				const MyString caption=L"Message",
+				bool exclusive=true
+				);
+
+
 }
 
 #endif

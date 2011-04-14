@@ -21,7 +21,7 @@ struct ListboxItem : public Control
 
 	CallbackActionFunc actionSelected;
 
-	ListboxItem(Control *parent, Theme &t);
+	ListboxItem(Control *parent);
 	virtual ~ListboxItem();
 
 	virtual void Render();
@@ -34,7 +34,7 @@ struct Listbox : public Scrollbox
 
 	CallbackActionFunc actionModified;
 
-	Listbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
+	Listbox(Control *parent, int x1, int y1, int x2, int y2);
 	virtual ~Listbox();
 
 	virtual void Clear();

@@ -11,8 +11,8 @@
 namespace BSGUI
 {
 
-Slider::Slider(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
-	: Control(parent, t)
+Slider::Slider(Control *parent, int x1, int y1, int x2, int y2)
+	: Control(parent)
 {
 	sliding = false;
 	Place(x1, y1, x2, y2);

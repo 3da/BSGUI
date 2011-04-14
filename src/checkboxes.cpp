@@ -11,8 +11,8 @@
 namespace BSGUI
 {
 
-Checkbox::Checkbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2, const MyString caption)
-:Button(parent,t, x1, y1, x2, y2, caption, 0)
+Checkbox::Checkbox(Control *parent, int x1, int y1, int x2, int y2, const MyString caption)
+:Button(parent, x1, y1, x2, y2, caption, 0)
 {
 	Place(x1, y1, x2, y2);
 	hover = pushed = false;

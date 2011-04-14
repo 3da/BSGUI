@@ -11,7 +11,7 @@ namespace BSGUI
 		public:
 		BSGFX::Texture *image;
 
-		Picture(Control *parent, Theme &theme, int x1, int y1, int x2, int y2, BSGFX::Texture *image);
+		Picture(Control *parent, int x1, int y1, int x2, int y2, BSGFX::Texture *image);
 		virtual ~Picture();
 
 		virtual void Render();

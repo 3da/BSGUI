@@ -11,8 +11,8 @@
 namespace BSGUI
 {
 
-ProgressBar::ProgressBar(Control *parent, Theme &t, int x1, int y1, int x2, int y2)
-	: Control(parent, t)
+ProgressBar::ProgressBar(Control *parent, int x1, int y1, int x2, int y2)
+	: Control(parent)
 {
 	max = 100;
 	value = 0;

@@ -21,7 +21,7 @@ struct Scrollbox : public Control
 	int	scrolling;      // 0=no, 1=vertical, 2=horizontal
 	CallbackActionFunc actionScrolled;
 
-	Scrollbox(Control *parent, Theme &t, int x1, int y1, int x2, int y2);
+	Scrollbox(Control *parent, int x1, int y1, int x2, int y2);
 	virtual ~Scrollbox();
 
 	virtual void SetScrollingBounds(float hMax, float vMax);

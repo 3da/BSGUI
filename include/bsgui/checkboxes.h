@@ -16,7 +16,7 @@ namespace BSGUI
 struct Checkbox : public Button
 {
 
-	Checkbox(Control *parent, Theme&, int x1, int y1, int x2, int y2, const MyString caption);
+	Checkbox(Control *parent, int x1, int y1, int x2, int y2, const MyString caption);
 	virtual ~Checkbox();
 
 	CallbackActionFunc actionModified;
