@@ -74,7 +74,10 @@
 		<Unit filename="src\controls.cpp" />
 		<Unit filename="src\draw.cpp" />
 		<Unit filename="src\filebrowser.cpp" />
-		<Unit filename="src\gfxsettings.cpp" />
+		<Unit filename="src\gfxsettings.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="src\inputboxes.cpp" />
 		<Unit filename="src\labels.cpp" />
 		<Unit filename="src\listboxes.cpp" />

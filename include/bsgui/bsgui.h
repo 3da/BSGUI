@@ -50,6 +50,9 @@ void Render();
 void Tick();
 bool HandleSDLEvent(SDL_Event *ev);
 
+Theme GetDefaultTheme();
+void SetDefaultTheme(Theme &theme);
+
 }
 
 #endif

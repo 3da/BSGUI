@@ -13,6 +13,8 @@ namespace BSGUI
 
 using namespace Draw;
 
+static Theme defaultTheme;
+
 static void BeginRender()
 {
     // Based on SDL_GL_Enter2DMode from SDL examples.
@@ -160,6 +162,16 @@ bool HandleSDLEvent(SDL_Event *ev)
 			return Control::keyboardFocusControl->OnKeyUp(ev->key.keysym.sym, ev->key.keysym.unicode);
 	}
 	return false;
+}
+
+Theme GetDefaultTheme()
+{
+	return defaultTheme;
+}
+
+void SetDefaultTheme(Theme &theme)
+{
+	defaultTheme = theme;
 }
 
 
