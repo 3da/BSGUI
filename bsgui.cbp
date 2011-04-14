@@ -69,6 +69,7 @@
 		<Unit filename="include\bsgui\sliders.h" />
 		<Unit filename="include\bsgui\theme.h" />
 		<Unit filename="include\bsgui\windows.h" />
+		<Unit filename="src\bsgui.cpp" />
 		<Unit filename="src\buttons.cpp" />
 		<Unit filename="src\checkboxes.cpp" />
 		<Unit filename="src\controls.cpp" />
@@ -81,7 +82,6 @@
 		<Unit filename="src\inputboxes.cpp" />
 		<Unit filename="src\labels.cpp" />
 		<Unit filename="src\listboxes.cpp" />
-		<Unit filename="src\main.cpp" />
 		<Unit filename="src\messageboxes.cpp" />
 		<Unit filename="src\modelviews.cpp" />
 		<Unit filename="src\mystring.cpp" />
