@@ -1,12 +1,12 @@
 #ifndef MAIN_H_INCLUDED
 #define MAIN_H_INCLUDED
 
-#include "Drawing.h"
-#include "Screen.h"
-#include "Videomode.h"
-#include "Texture.h"
-#include "Alignment.h"
-#include "Font.h"
+#include "BSGFX/Drawing.h"
+#include "BSGFX/Screen.h"
+#include "BSGFX/Videomode.h"
+#include "BSGFX/Texture.h"
+#include "BSGFX/Alignment.h"
+#include "BSGFX/Font.h"
 
 namespace BSGFX
 {

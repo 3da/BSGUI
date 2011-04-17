@@ -136,18 +136,6 @@ void ImageWinResizedAction(Control *sender)
 	img->Place(10, 10, w - 10, h - 30);
 }
 
-void EnableFiltering(Control *sender)
-{
-	Image	*img = (Image*)Screen::screen->FindChild("cenda");
-	//img->bitmap->SetFiltering(true);
-}
-
-void DisableFiltering(Control *sender)
-{
-	Image	*img = (Image*)Screen::screen->FindChild("cenda");
-	//img->bitmap->SetFiltering(false);
-}
-
 void CendaClicked(Control *sender)
 {
 	SelectFileAction(sender);
