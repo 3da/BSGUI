@@ -11,7 +11,7 @@
 #include "bsgui/buttons.h"
 #include "bsgui/actions.h"
 #include "bsgui/screen.h"
-#include "bsgui/bsgui.h"
+#include "bsgui.h"
 
 namespace BSGUI
 {

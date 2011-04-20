@@ -46,8 +46,8 @@
 			<Add directory="dependences\BSGFX\bin" />
 			<Add directory="dependences\BSGFX\dependences\SDL-1.2.14\lib" />
 		</Linker>
+		<Unit filename="include\bsgui.h" />
 		<Unit filename="include\bsgui\actions.h" />
-		<Unit filename="include\bsgui\bsgui.h" />
 		<Unit filename="include\bsgui\buttons.h" />
 		<Unit filename="include\bsgui\checkboxes.h" />
 		<Unit filename="include\bsgui\controls.h" />

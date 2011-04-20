@@ -6,7 +6,7 @@
 #include "bsgui/controls.h"
 #include "bsgui/actions.h"
 #include "bsgui/draw.h"
-#include "bsgui/bsgui.h"
+#include "bsgui.h"
 //#include "bsgui/menus.h"
 
 #include <GL/GL.h>
